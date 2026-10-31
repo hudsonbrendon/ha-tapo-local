@@ -1,0 +1,158 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Tapo Plus",
+        "menu_options": {
+          "import_tapo_control": "Usar câmera do Tapo: Cameras Control",
+          "camera": "Adicionar câmera manualmente",
+          "cloud": "Adicionar conta da nuvem TP-Link"
+        }
+      },
+      "import_tapo_control": {
+        "title": "Importar câmera",
+        "data": {
+          "source_entry": "Câmera"
+        }
+      },
+      "camera": {
+        "title": "Câmera",
+        "description": "O login local usa o usuário admin + a senha da sua conta TP-Link. Senha errada trava a câmera por 30 minutos.",
+        "data": {
+          "host": "Endereço IP",
+          "password": "Senha da conta TP-Link"
+        }
+      },
+      "cloud": {
+        "title": "Conta TP-Link",
+        "data": {
+          "username": "E-mail",
+          "password": "Senha"
+        }
+      },
+      "mfa": {
+        "title": "Código de verificação",
+        "description": "A TP-Link mandou um código pro seu e-mail.",
+        "data": {
+          "code": "Código"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Reautenticar",
+        "data": {
+          "password": "Senha da conta TP-Link"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Credenciais inválidas (a câmera pode ficar travada por 30 min)",
+      "cannot_connect": "Não foi possível conectar",
+      "invalid_code": "Código inválido",
+      "mfa_send_failed": "Não foi possível enviar o e-mail de verificação"
+    },
+    "abort": {
+      "already_configured": "Já configurado",
+      "reauth_successful": "Reautenticado"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "last_event": {
+        "name": "Último evento"
+      },
+      "last_event_type": {
+        "name": "Tipo do último evento"
+      },
+      "events_24h": {
+        "name": "Eventos (24h)"
+      },
+      "last_motion": {
+        "name": "Último movimento"
+      },
+      "last_person": {
+        "name": "Última pessoa"
+      },
+      "recordings_today": {
+        "name": "Gravações hoje"
+      },
+      "recorded_today": {
+        "name": "Tempo gravado hoje"
+      },
+      "record_mode": {
+        "name": "Modo de gravação",
+        "state": {
+          "off": "Desligado",
+          "continuous": "Contínua",
+          "events": "Só eventos",
+          "aov": "Vídeo sempre ligado",
+          "mixed": "Misto"
+        }
+      },
+      "sd_used": {
+        "name": "Cartão SD usado"
+      },
+      "sd_oldest_recording": {
+        "name": "Gravação mais antiga"
+      },
+      "sd_retention": {
+        "name": "Retenção das gravações"
+      },
+      "video_resolution": {
+        "name": "Resolução do vídeo"
+      },
+      "video_bitrate": {
+        "name": "Bitrate do vídeo"
+      },
+      "video_codec": {
+        "name": "Codec do vídeo"
+      },
+      "video_fps": {
+        "name": "Quadros por segundo"
+      },
+      "wifi_signal": {
+        "name": "Sinal Wi-Fi"
+      },
+      "ip_address": {
+        "name": "Endereço IP"
+      },
+      "connected_since": {
+        "name": "Conectada desde"
+      },
+      "clock_offset": {
+        "name": "Desvio do relógio"
+      },
+      "firmware_state": {
+        "name": "Estado do firmware"
+      },
+      "notifications": {
+        "name": "Tipos de notificação ativos"
+      },
+      "cloud_last_notification": {
+        "name": "Última notificação (nuvem)"
+      },
+      "cloud_notifications_24h": {
+        "name": "Notificações na nuvem (24h)"
+      },
+      "cloud_firmware": {
+        "name": "Firmware (nuvem)"
+      }
+    },
+    "binary_sensor": {
+      "sd_problem": {
+        "name": "Problema no cartão SD"
+      },
+      "upnp": {
+        "name": "UPnP"
+      },
+      "onvif_tls": {
+        "name": "ONVIF TLS"
+      },
+      "third_party": {
+        "name": "Compatibilidade com terceiros"
+      },
+      "cloud_online": {
+        "name": "Online (nuvem)"
+      }
+    }
+  }
+}

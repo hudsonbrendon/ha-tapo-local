@@ -1,0 +1,158 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Tapo Plus",
+        "menu_options": {
+          "import_tapo_control": "Use a camera from Tapo: Cameras Control",
+          "camera": "Add camera manually",
+          "cloud": "Add TP-Link cloud account"
+        }
+      },
+      "import_tapo_control": {
+        "title": "Import camera",
+        "data": {
+          "source_entry": "Camera"
+        }
+      },
+      "camera": {
+        "title": "Camera",
+        "description": "Local login uses user admin + your TP-Link account password. Wrong passwords lock the camera for 30 minutes.",
+        "data": {
+          "host": "IP address",
+          "password": "TP-Link account password"
+        }
+      },
+      "cloud": {
+        "title": "TP-Link account",
+        "data": {
+          "username": "E-mail",
+          "password": "Password"
+        }
+      },
+      "mfa": {
+        "title": "Verification code",
+        "description": "TP-Link sent a code to your e-mail.",
+        "data": {
+          "code": "Code"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Re-authenticate",
+        "data": {
+          "password": "TP-Link account password"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid credentials (the camera may be locked for 30 min)",
+      "cannot_connect": "Cannot connect",
+      "invalid_code": "Invalid code",
+      "mfa_send_failed": "Could not send the verification e-mail"
+    },
+    "abort": {
+      "already_configured": "Already configured",
+      "reauth_successful": "Re-authenticated"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "last_event": {
+        "name": "Last event"
+      },
+      "last_event_type": {
+        "name": "Last event type"
+      },
+      "events_24h": {
+        "name": "Events (24h)"
+      },
+      "last_motion": {
+        "name": "Last motion"
+      },
+      "last_person": {
+        "name": "Last person"
+      },
+      "recordings_today": {
+        "name": "Recordings today"
+      },
+      "recorded_today": {
+        "name": "Recorded today"
+      },
+      "record_mode": {
+        "name": "Recording mode",
+        "state": {
+          "off": "Off",
+          "continuous": "Continuous",
+          "events": "Events only",
+          "aov": "Always-on video",
+          "mixed": "Mixed"
+        }
+      },
+      "sd_used": {
+        "name": "SD card used"
+      },
+      "sd_oldest_recording": {
+        "name": "Oldest recording"
+      },
+      "sd_retention": {
+        "name": "Recording retention"
+      },
+      "video_resolution": {
+        "name": "Video resolution"
+      },
+      "video_bitrate": {
+        "name": "Video bitrate"
+      },
+      "video_codec": {
+        "name": "Video codec"
+      },
+      "video_fps": {
+        "name": "Video frame rate"
+      },
+      "wifi_signal": {
+        "name": "Wi-Fi signal"
+      },
+      "ip_address": {
+        "name": "IP address"
+      },
+      "connected_since": {
+        "name": "Connected since"
+      },
+      "clock_offset": {
+        "name": "Clock offset"
+      },
+      "firmware_state": {
+        "name": "Firmware state"
+      },
+      "notifications": {
+        "name": "Push notification types"
+      },
+      "cloud_last_notification": {
+        "name": "Last cloud notification"
+      },
+      "cloud_notifications_24h": {
+        "name": "Cloud notifications (24h)"
+      },
+      "cloud_firmware": {
+        "name": "Cloud firmware"
+      }
+    },
+    "binary_sensor": {
+      "sd_problem": {
+        "name": "SD card problem"
+      },
+      "upnp": {
+        "name": "UPnP"
+      },
+      "onvif_tls": {
+        "name": "ONVIF TLS"
+      },
+      "third_party": {
+        "name": "Third-party compatibility"
+      },
+      "cloud_online": {
+        "name": "Online (cloud)"
+      }
+    }
+  }
+}

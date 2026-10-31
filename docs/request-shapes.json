@@ -1,0 +1,3829 @@
+[
+{
+"method": "?Location.BIND_TO_CLOUD",
+"module": "cloud_config",
+"key": "bind",
+"values": []
+},
+{
+"method": "addChimeCtrlDevice",
+"module": "chime_ctrl",
+"key": "add_device",
+"values": []
+},
+{
+"method": "addChn2CoverRegion",
+"module": "cover",
+"key": "add_chn2_cover_regions",
+"values": []
+},
+{
+"method": "addCoverRegion",
+"module": "cover",
+"key": "add_cover_regions",
+"values": []
+},
+{
+"method": "addGlobalDetectionRegion",
+"module": "detection_region",
+"key": "add_global_regions",
+"values": []
+},
+{
+"method": "addGlobalDetectionRegion",
+"module": "detection_region",
+"key": "add_global_regions_chn",
+"values": []
+},
+{
+"method": "addIntrusionDetectionRegion",
+"module": "intrusion_detection",
+"key": "add_regions",
+"values": []
+},
+{
+"method": "addLinecrossingDetectionRegion",
+"module": "linecrossing_detection",
+"key": "add_regions",
+"values": []
+},
+{
+"method": "addLinecrossingDetectionRegion",
+"module": "linecrossing_detection",
+"key": "add_regions_chn",
+"values": []
+},
+{
+"method": "addMotorPostion",
+"module": "preset",
+"key": "set_preset",
+"values": []
+},
+{
+"method": "addPackageDetectionRegion",
+"module": "package_detection",
+"key": "add_pkgd_regions",
+"values": []
+},
+{
+"method": "addPatrol",
+"module": "patrol",
+"key": "add_patrol",
+"values": []
+},
+{
+"method": "addPrivacyZoneRegion",
+"module": "cover",
+"key": "add_cover_regions",
+"values": []
+},
+{
+"method": "addSafeFenceRegion",
+"module": "safefence_detection",
+"key": "add_regions",
+"values": []
+},
+{
+"method": "addTapoDetectionRegion",
+"module": "detection_region",
+"key": "add_active_regions",
+"values": []
+},
+{
+"method": "addTapoDetectionRegion",
+"module": "detection_region",
+"key": "add_active_regions_chn",
+"values": []
+},
+{
+"method": "addTimeAlarmParams",
+"module": "time_alarm",
+"key": "addParams",
+"values": []
+},
+{
+"method": "addWallpaperImagePacketized",
+"module": "lvgl_ui",
+"key": "add_wallpaper_img_pkt",
+"values": []
+},
+{
+"method": "changeAdminPassword",
+"module": "user_management",
+"key": "change_admin_password",
+"values": [
+"admin"
+]
+},
+{
+"method": "changeLocalAccount",
+"module": "user_management",
+"key": "change_local_account",
+"values": []
+},
+{
+"method": "changeThirdAccount",
+"module": "user_management",
+"key": "change_third_account",
+"values": []
+},
+{
+"method": "checkDetectEventState",
+"module": "playback",
+"key": "check_detect_event_state",
+"values": []
+},
+{
+"method": "checkDiagnoseStatus",
+"module": "system",
+"key": "check_diagnose_status",
+"values": []
+},
+{
+"method": "checkFirmwareVersionByCloud",
+"module": "cloud_config",
+"key": "check_fw_version",
+"values": [
+"null"
+]
+},
+{
+"method": "checkIpConflict",
+"module": "protocol",
+"key": "check_ip_conflict",
+"values": []
+},
+{
+"method": "checkResetWiFi",
+"module": "system",
+"key": "reset_wifi_supported",
+"values": []
+},
+{
+"method": "cleanSleepData",
+"module": "sleep_statistics",
+"key": "clean_sleep_data",
+"values": []
+},
+{
+"method": "configRestore",
+"module": "system",
+"key": "config_restore",
+"values": []
+},
+{
+"method": "connectAp",
+"module": "on_boarding",
+"key": "",
+"values": []
+},
+{
+"method": "createSplendidMomentBaby",
+"module": "splendid_moment",
+"key": "create_baby",
+"values": []
+},
+{
+"method": "cruiseMove",
+"module": "motor",
+"key": "cruise",
+"values": [
+"x",
+"y"
+]
+},
+{
+"method": "cruiseStop",
+"module": "motor",
+"key": "cruise_stop",
+"values": [
+"null"
+]
+},
+{
+"method": "delCallLog",
+"module": "call_manager",
+"key": "del_call_log",
+"values": []
+},
+{
+"method": "delChimeCtrlDevice",
+"module": "chime_ctrl",
+"key": "del_device",
+"values": []
+},
+{
+"method": "delQuickResp",
+"module": "quick_resp",
+"key": "delete_usr_def_audio",
+"values": []
+},
+{
+"method": "delTimeAlarmParams",
+"module": "time_alarm",
+"key": "delParams",
+"values": []
+},
+{
+"method": "delTimeAlarmParamsList",
+"module": "time_alarm",
+"key": "delParamsList",
+"values": []
+},
+{
+"method": "delUsrDefAudio",
+"module": "msg_alarm",
+"key": "delete_usr_def_audio",
+"values": []
+},
+{
+"method": "delUsrDefMusic",
+"module": "music",
+"key": "delete_usr_def_audio",
+"values": []
+},
+{
+"method": "delWallpaperImage",
+"module": "lvgl_ui",
+"key": "del_wallpaper_img",
+"values": []
+},
+{
+"method": "deletePatrol",
+"module": "patrol",
+"key": "delete_patrol",
+"values": []
+},
+{
+"method": "deletePreset",
+"module": "preset",
+"key": "remove_preset",
+"values": []
+},
+{
+"method": "deleteSplendidMomentFileList",
+"module": "splendid_moment",
+"key": "delete_file_list",
+"values": []
+},
+{
+"method": "deleteThirdAccount",
+"module": "user_management",
+"key": "delete_third_account",
+"values": []
+},
+{
+"method": "diagnoseStartRequest",
+"module": "diagnose",
+"key": "diagnose_start_request",
+"values": []
+},
+{
+"method": "diagnoseStopRequest",
+"module": "diagnose",
+"key": "diagnose_stop_request",
+"values": []
+},
+{
+"method": "doManualAlarm",
+"module": "msg_alarm",
+"key": "manual_alarm",
+"values": []
+},
+{
+"method": "editPatrol",
+"module": "patrol",
+"key": "edit_patrol",
+"values": []
+},
+{
+"method": "formatHardDisk",
+"module": "harddisk_manage",
+"key": "format_hd",
+"values": []
+},
+{
+"method": "formatHardDisk",
+"module": "harddisk_manage",
+"key": "null",
+"values": []
+},
+{
+"method": "formatSdCard",
+"module": "harddisk_manage",
+"key": "format_hd",
+"values": [
+"1"
+]
+},
+{
+"method": "formatSdCard",
+"module": "harddisk_manage",
+"key": "null",
+"values": []
+},
+{
+"method": "forwardIPC",
+"module": "forward",
+"key": "null",
+"values": []
+},
+{
+"method": "get4gBackupCfg",
+"module": "lte_manager",
+"key": "",
+"values": [
+"4g_backup_cfg"
+]
+},
+{
+"method": "getAESEncryptKey",
+"module": "cet",
+"key": "get_aes_key",
+"values": []
+},
+{
+"method": "getAbnormalPowerStatus",
+"module": "batCamStatistics",
+"key": "get_abnormal_power_status",
+"values": []
+},
+{
+"method": "getAlarmConfig",
+"module": "msg_alarm",
+"key": "null",
+"values": []
+},
+{
+"method": "getAlarmDetectionConfig",
+"module": "alarm_detection",
+"key": "",
+"values": [
+"detection"
+]
+},
+{
+"method": "getAlertConfig",
+"module": "msg_alarm",
+"key": "",
+"values": [
+"chn1_msg_alarm_info"
+]
+},
+{
+"method": "getAlertConfig",
+"module": "msg_alarm",
+"key": "null",
+"values": []
+},
+{
+"method": "getAlertEventType",
+"module": "msg_alarm",
+"key": "table",
+"values": [
+"msg_alarm_type"
+]
+},
+{
+"method": "getAlertPlan",
+"module": "msg_alarm_plan",
+"key": "",
+"values": [
+"chn1_msg_alarm_plan"
+]
+},
+{
+"method": "getAlertTypeList",
+"module": "msg_alarm",
+"key": "",
+"values": [
+"alert_type"
+]
+},
+{
+"method": "getAllChnInfo",
+"module": "system",
+"key": "table",
+"values": [
+"chn_info"
+]
+},
+{
+"method": "getAntiTheftEnable",
+"module": "anti_theft",
+"key": "",
+"values": [
+"config"
+]
+},
+{
+"method": "getAntiTheftEnable",
+"module": "anti_theft",
+"key": "null",
+"values": []
+},
+{
+"method": "getAntiTheftStatus",
+"module": "anti_theft",
+"key": "",
+"values": [
+"status"
+]
+},
+{
+"method": "getAntiTheftStatus",
+"module": "anti_theft",
+"key": "get_anti_theft_status",
+"values": [
+"null"
+]
+},
+{
+"method": "getAovConfig",
+"module": "aov",
+"key": "",
+"values": [
+"config"
+]
+},
+{
+"method": "getApnConfig",
+"module": "lte_manager",
+"key": "",
+"values": [
+"apn"
+]
+},
+{
+"method": "getAppComponentList",
+"module": "app_component",
+"key": "",
+"values": [
+"app_component_list"
+]
+},
+{
+"method": "getAppLdcID",
+"module": "extend_info_sei",
+"key": "",
+"values": [
+"app_ldc"
+]
+},
+{
+"method": "getApproachDetectionConfig",
+"module": "approach_detection",
+"key": "",
+"values": [
+"detection"
+]
+},
+{
+"method": "getAudioConfig",
+"module": "audio_capability",
+"key": "",
+"values": [
+"device_sourcefile"
+]
+},
+{
+"method": "getAudioConfig",
+"module": "audio_config",
+"key": "",
+"values": [
+"device_microphone",
+"device_sourcefile",
+"microphone",
+"microphone_algo",
+"record_audio",
+"speaker",
+"speaker_algo",
+"voice_enhancement"
+]
+},
+{
+"method": "getAutoAnswerContact",
+"module": "call_manager",
+"key": "get_auto_answer_contact",
+"values": []
+},
+{
+"method": "getAutoSw",
+"module": "network",
+"key": "get_auto_sw",
+"values": [
+"null"
+]
+},
+{
+"method": "getBCDConfig",
+"module": "sound_detection",
+"key": "",
+"values": [
+"bcd"
+]
+},
+{
+"method": "getBabyLeaveDetectionConfig",
+"module": "baby_leave_detection",
+"key": "",
+"values": [
+"detection"
+]
+},
+{
+"method": "getBabySleepDetectionConfig",
+"module": "baby_sleep_detection",
+"key": "",
+"values": [
+"detection"
+]
+},
+{
+"method": "getBabySleepDetectionSensitivityCapability",
+"module": "baby_sleep_detection",
+"key": "",
+"values": [
+"sensitivity_capability"
+]
+},
+{
+"method": "getBarkDetectionConfig",
+"module": "bark_detection",
+"key": "",
+"values": [
+"detection"
+]
+},
+{
+"method": "getBatteryCapability",
+"module": "battery",
+"key": "",
+"values": [
+"capability"
+]
+},
+{
+"method": "getBatteryCapability",
+"module": "battery",
+"key": "null",
+"values": []
+},
+{
+"method": "getBatteryConfig",
+"module": "battery",
+"key": "",
+"values": [
+"config"
+]
+},
+{
+"method": "getBatteryConfig",
+"module": "battery",
+"key": "null",
+"values": []
+},
+{
+"method": "getBatteryPowerSave",
+"module": "battery",
+"key": "",
+"values": [
+"power_save"
+]
+},
+{
+"method": "getBatteryPowerSave",
+"module": "battery",
+"key": "null",
+"values": []
+},
+{
+"method": "getBatteryStatus",
+"module": "battery",
+"key": "",
+"values": [
+"status"
+]
+},
+{
+"method": "getBatteryStatus",
+"module": "battery",
+"key": "null",
+"values": []
+},
+{
+"method": "getBindedSensor",
+"module": "sensor",
+"key": "get_binded_sensor",
+"values": []
+},
+{
+"method": "getBleObBasicInfo",
+"module": "ble_onboarding",
+"key": "get_ble_ob_basic_info",
+"values": []
+},
+{
+"method": "getButtonConfig",
+"module": "physical_button",
+"key": "",
+"values": [
+"multifunc_btn_cfg"
+]
+},
+{
+"method": "getCalibratedParams",
+"module": "panoramic_view",
+"key": "get_calibrated_params",
+"values": []
+},
+{
+"method": "getCallLog",
+"module": "call_manager",
+"key": "get_call_log",
+"values": []
+},
+{
+"method": "getCallStateInfo",
+"module": "call_manager",
+"key": "",
+"values": [
+"call_state_info"
+]
+},
+{
+"method": "getCaregiverDetectionConfig",
+"module": "caregiver_detection",
+"key": "",
+"values": [
+"detection"
+]
+},
+{
+"method": "getChargingMode",
+"module": "battery",
+"key": "",
+"values": [
+"charging_mode"
+]
+},
+{
+"method": "getChargingPrivacyMode",
+"module": "battery",
+"key": "null",
+"values": []
+},
+{
+"method": "getChimeCtrlKey",
+"module": "chime_ctrl",
+"key": "get_ring_key",
+"values": []
+},
+{
+"method": "getChimeCtrlList",
+"module": "chime_ctrl",
+"key": "get_paired_device_list",
+"values": []
+},
+{
+"method": "getChimeRingPlan",
+"module": "chime_ring_plan",
+"key": "",
+"values": [
+"chn1_chime_ring_plan"
+]
+},
+{
+"method": "getChn2CoverRegion",
+"module": "cover",
+"key": "table",
+"values": [
+"chn2_region_info"
+]
+},
+{
+"method": "getCircularRecordingConfig",
+"module": "harddisk_manage",
+"key": "",
+"values": [
+"harddisk"
+]
+},
+{
+"method": "getClockStatus",
+"module": "system",
+"key": "",
+"values": [
+"clock_status"
+]
+},
+{
+"method": "getCloudAccount",
+"module": "cloud_config",
+"key": "get_cloud_account",
+"values": []
+},
+{
+"method": "getCloudConfig",
+"module": "cloud_config",
+"key": "",
+"values": [
+"upgrade_info"
+]
+},
+{
+"method": "getCloudNetDiagnose",
+"module": "diagnose",
+"key": "get_cloud_net_diagnose",
+"values": []
+},
+{
+"method": "getConfigSSID",
+"module": "network",
+"key": "get_config_ssid",
+"values": [
+"null"
+]
+},
+{
+"method": "getConnectStatus",
+"module": "on_boarding",
+"key": "get_connect_status",
+"values": []
+},
+{
+"method": "getConnectionType",
+"module": "network",
+"key": "get_connection_type",
+"values": [
+"null"
+]
+},
+{
+"method": "getCoverConfig",
+"module": "cover",
+"key": "",
+"values": [
+"cover"
+]
+},
+{
+"method": "getCoverRegion",
+"module": "cover",
+"key": "",
+"values": [
+"region_info_chn"
+]
+},
+{
+"method": "getCoverRegion",
+"module": "cover",
+"key": "table",
+"values": [
+"region_info"
+]
+},
+{
+"method": "getDataTrafficLimit",
+"module": "lte_manager",
+"key": "",
+"values": [
+"data_traffic_limit"
+]
+},
+{
+"method": "getDataTrafficNotification",
+"module": "lte_manager",
+"key": "",
+"values": [
+"data_traffic_notification"
+]
+},
+{
+"method": "getDataTrafficOfYear",
+"module": "lte_manager",
+"key": "get_data_traffic_of_year",
+"values": []
+},
+{
+"method": "getDayNightModeConfig",
+"module": "image",
+"key": "",
+"values": [
+"chn_id",
+"common"
+]
+},
+{
+"method": "getDetectionConfig",
+"module": "motion_detection",
+"key": "",
+"values": [
+"chn_id",
+"motion_det",
+"region_info",
+"table"
+]
+},
+{
+"method": "getDetectionMode",
+"module": "detection_region",
+"key": "",
+"values": [
+"chn_id",
+"mode_status"
+]
+},
+{
+"method": "getDevMgrCapability",
+"module": "cloud_dev_mgr",
+"key": "",
+"values": [
+"dev_mgr_capability"
+]
+},
+{
+"method": "getDeviceInfo",
+"module": "device_info",
+"key": "",
+"values": [
+"basic_info"
+]
+},
+{
+"method": "getDeviceIpAddress",
+"module": "network",
+"key": "",
+"values": [
+"wan"
+]
+},
+{
+"method": "getDeviceLanguage",
+"module": "system",
+"key": "",
+"values": [
+"device_language"
+]
+},
+{
+"method": "getDeviceLanguageCapability",
+"module": "system",
+"key": "get_device_language_capability",
+"values": []
+},
+{
+"method": "getDeviceListWithVideoRange",
+"module": "hubPlayback",
+"key": "device_list",
+"values": []
+},
+{
+"method": "getDiagnoseMode",
+"module": "system",
+"key": "",
+"values": []
+},
+{
+"method": "getDiagnoseStatus",
+"module": "diagnose",
+"key": "get_diagnose_status",
+"values": []
+},
+{
+"method": "getDisplayConfig",
+"module": "screen_config",
+"key": "",
+"values": [
+"display_config"
+]
+},
+{
+"method": "getDnSwitchModeCapability",
+"module": "image_capability",
+"key": "",
+"values": [
+"dn_switch_mode",
+"wtl_dn_switch_mode"
+]
+},
+{
+"method": "getDnSwitchModeConfig",
+"module": "image",
+"key": "",
+"values": [
+"dn_switch_mode"
+]
+},
+{
+"method": "getDoorlockRecords",
+"module": "lock_record",
+"key": "lock_record",
+"values": []
+},
+{
+"method": "getDownloadState",
+"module": "data_download",
+"key": "",
+"values": [
+"download_state"
+]
+},
+{
+"method": "getDstRule",
+"module": "system",
+"key": "",
+"values": [
+"dst"
+]
+},
+{
+"method": "getDualCamCapability",
+"module": "image_capability",
+"key": "",
+"values": [
+"dualCam"
+]
+},
+{
+"method": "getDualCamLinkage",
+"module": "dual_cam_linkage",
+"key": "",
+"values": [
+"linkage_state"
+]
+},
+{
+"method": "getExpressionDetectionConfig",
+"module": "expression_detection",
+"key": "",
+"values": [
+"detection"
+]
+},
+{
+"method": "getFaceDetectionConfig",
+"module": "face_detection",
+"key": "",
+"values": [
+"detection"
+]
+},
+{
+"method": "getFaceNotificationConfig",
+"module": "face_detection",
+"key": "notify_list",
+"values": []
+},
+{
+"method": "getFacecoverDetectionConfig",
+"module": "facecover_detection",
+"key": "",
+"values": [
+"detection"
+]
+},
+{
+"method": "getFastOnboardingList",
+"module": "wlan_chime_ctrl",
+"key": "get_fast_onboarding_list",
+"values": []
+},
+{
+"method": "getFirmwareAutoUpgradeConfig",
+"module": "auto_upgrade",
+"key": "",
+"values": [
+"common"
+]
+},
+{
+"method": "getFirmwareCapability",
+"module": "auto_upgrade",
+"key": "null",
+"values": [
+"null"
+]
+},
+{
+"method": "getFirmwareUpdateProcess",
+"module": "auto_upgrade",
+"key": "null",
+"values": [
+"null"
+]
+},
+{
+"method": "getFirmwareUpdateStatus",
+"module": "cloud_config",
+"key": "",
+"values": [
+"upgrade_status"
+]
+},
+{
+"method": "getFloodlightCapability",
+"module": "floodlight",
+"key": "",
+"values": [
+"capability"
+]
+},
+{
+"method": "getFloodlightConfig",
+"module": "floodlight",
+"key": "",
+"values": [
+"config"
+]
+},
+{
+"method": "getFloodlightDetEvtType",
+"module": "floodlight",
+"key": "table",
+"values": [
+"floodlight_det_type"
+]
+},
+{
+"method": "getFloodlightFadeEnable",
+"module": "floodlight",
+"key": "",
+"values": [
+"fade"
+]
+},
+{
+"method": "getFloodlightPirTrigPlan",
+"module": "floodlight",
+"key": "",
+"values": [
+"chn1_flood_trig_plan"
+]
+},
+{
+"method": "getFloodlightStatus",
+"module": "floodlight",
+"key": "get_floodlight_status",
+"values": []
+},
+{
+"method": "getForceWhitelampState",
+"module": "image",
+"key": "",
+"values": [
+"switch"
+]
+},
+{
+"method": "getFreqTriggerStatus",
+"module": "batCamStatistics",
+"key": "get_freq_trigger_status",
+"values": []
+},
+{
+"method": "getGlassDetectionConfig",
+"module": "glass_detection",
+"key": "",
+"values": [
+"detection"
+]
+},
+{
+"method": "getGlobalDetectionRegion",
+"module": "detection_region",
+"key": "table",
+"values": [
+"chn_id",
+"global_region_info"
+]
+},
+{
+"method": "getHardDiskFormatStatus",
+"module": "harddisk_manage",
+"key": "get_format_status",
+"values": []
+},
+{
+"method": "getHardDiskStatus",
+"module": "harddisk_manage",
+"key": "table",
+"values": [
+"hd_info"
+]
+},
+{
+"method": "getHoverDetectionCapability",
+"module": "hover_detection",
+"key": "",
+"values": [
+"capability"
+]
+},
+{
+"method": "getHoverDetectionConfig",
+"module": "hover_detection",
+"key": "",
+"values": [
+"detection"
+]
+},
+{
+"method": "getHprDetectionConfig",
+"module": "hpr_detection",
+"key": "",
+"values": [
+"detection"
+]
+},
+{
+"method": "getHubAlarmStatus",
+"module": "msg_alarm",
+"key": "null",
+"values": []
+},
+{
+"method": "getHubRingPlan",
+"module": "hub_ring_plan",
+"key": "null",
+"values": []
+},
+{
+"method": "getHubRingPlay",
+"module": "hub_ring",
+"key": "null",
+"values": []
+},
+{
+"method": "getHubRingSoundConfig",
+"module": "hub_ring",
+"key": "null",
+"values": []
+},
+{
+"method": "getHubRingStatus",
+"module": "hub_ring",
+"key": "null",
+"values": []
+},
+{
+"method": "getHubStorage",
+"module": "hub_manage",
+"key": "",
+"values": [
+"hub_storage_info"
+]
+},
+{
+"method": "getImageCapability",
+"module": "image_capability",
+"key": "",
+"values": [
+"flip"
+]
+},
+{
+"method": "getImageLumaConfig",
+"module": "image",
+"key": "",
+"values": [
+"common"
+]
+},
+{
+"method": "getImageLumaConfig",
+"module": "image",
+"key": "null",
+"values": []
+},
+{
+"method": "getImageStyleCapability",
+"module": "image_style_capability",
+"key": "",
+"values": [
+"image"
+]
+},
+{
+"method": "getImageStyleConfig",
+"module": "image",
+"key": "",
+"values": [
+"common"
+]
+},
+{
+"method": "getImageStyleConfig",
+"module": "image",
+"key": "null",
+"values": []
+},
+{
+"method": "getInfLampCapability",
+"module": "image_capability",
+"key": "",
+"values": [
+"infrared_lamp"
+]
+},
+{
+"method": "getInfLampType",
+"module": "image",
+"key": "",
+"values": [
+"inf_lamp"
+]
+},
+{
+"method": "getInfo4g",
+"module": "lte_manager",
+"key": "",
+"values": [
+"info_4g"
+]
+},
+{
+"method": "getIntrusionDetectionConfig",
+"module": "intrusion_detection",
+"key": "",
+"values": [
+"arming_schedule",
+"detection"
+]
+},
+{
+"method": "getIntrusionDetectionRegion",
+"module": "intrusion_detection",
+"key": "table",
+"values": [
+"region_info"
+]
+},
+{
+"method": "getIpConflictStatus",
+"module": "protocol",
+"key": "get_ip_conflict_status",
+"values": []
+},
+{
+"method": "getIpManagerConfig",
+"module": "ipmgrc_cfg",
+"key": "",
+"values": [
+"config"
+]
+},
+{
+"method": "getLastAlarmInfo",
+"module": "system",
+"key": "",
+"values": [
+"last_alarm_info"
+]
+},
+{
+"method": "getLdc",
+"module": "image",
+"key": "",
+"values": [
+"switch"
+]
+},
+{
+"method": "getLedColor",
+"module": "led",
+"key": "",
+"values": [
+"color"
+]
+},
+{
+"method": "getLedStatus",
+"module": "led",
+"key": "",
+"values": [
+"config"
+]
+},
+{
+"method": "getLensMaskConfig",
+"module": "lens_mask",
+"key": "",
+"values": [
+"lens_mask_info"
+]
+},
+{
+"method": "getLightFrequencyCapability",
+"module": "image",
+"key": "",
+"values": [
+"light_frequency_capability"
+]
+},
+{
+"method": "getLightFrequencyCapability",
+"module": "image",
+"key": "null",
+"values": []
+},
+{
+"method": "getLinecrossingDetectionConfig",
+"module": "linecrossing_detection",
+"key": "",
+"values": [
+"arming_schedule",
+"chn_id",
+"detection"
+]
+},
+{
+"method": "getLinecrossingDetectionRegion",
+"module": "linecrossing_detection",
+"key": "table",
+"values": [
+"chn_id",
+"region_info"
+]
+},
+{
+"method": "getLinkageTargetCapability",
+"module": "dual_cam_linkage",
+"key": "",
+"values": [
+"linkage_target_capability"
+]
+},
+{
+"method": "getLockCapability",
+"module": "lock",
+"key": "",
+"values": [
+"capability"
+]
+},
+{
+"method": "getManualAlarm",
+"module": "msg_alarm",
+"key": "",
+"values": [
+"manual_alarm_info"
+]
+},
+{
+"method": "getManualAlarmStatus",
+"module": "msg_alarm",
+"key": "get_manual_alarm_status",
+"values": []
+},
+{
+"method": "getMarkerBoxConfig",
+"module": "marker_box",
+"key": "",
+"values": [
+"detection"
+]
+},
+{
+"method": "getMediaPSK",
+"module": "stream_capability",
+"key": "",
+"values": [
+"media_psk"
+]
+},
+{
+"method": "getMeowDetectionConfig",
+"module": "meow_detection",
+"key": "",
+"values": [
+"detection"
+]
+},
+{
+"method": "getMobileTrafficData",
+"module": "lte_manager",
+"key": "get_mobile_traffic_usage",
+"values": [
+"null"
+]
+},
+{
+"method": "getMotorAngleRange",
+"module": "panoramic_view",
+"key": "get_angle_range",
+"values": []
+},
+{
+"method": "getMotorFov",
+"module": "panoramic_view",
+"key": "get_fov",
+"values": []
+},
+{
+"method": "getMsgPushConfig",
+"module": "msg_push",
+"key": "",
+"values": [
+"chn1_msg_push_info"
+]
+},
+{
+"method": "getMsgPushEventList",
+"module": "msg_push",
+"key": "table",
+"values": [
+"msg_push_event"
+]
+},
+{
+"method": "getMsgPushPlan",
+"module": "msg_push_plan",
+"key": "",
+"values": [
+"chn1_msg_push_plan"
+]
+},
+{
+"method": "getMusicConfig",
+"module": "music",
+"key": "get_music_config",
+"values": []
+},
+{
+"method": "getMusicList",
+"module": "music",
+"key": "get_music_list",
+"values": []
+},
+{
+"method": "getNVRDstRule",
+"module": "system",
+"key": "",
+"values": []
+},
+{
+"method": "getNameplateLightConfig",
+"module": "nameplatelight",
+"key": "",
+"values": [
+"config"
+]
+},
+{
+"method": "getNetworkInterfaces",
+"module": "protocol",
+"key": "get_network_interfaces",
+"values": [
+"null"
+]
+},
+{
+"method": "getNightModePlan",
+"module": "shed_night_plan",
+"key": "",
+"values": [
+"chn1_shed_night_plan"
+]
+},
+{
+"method": "getNightVisionCapability",
+"module": "image_capability",
+"key": "",
+"values": [
+"supplement_lamp"
+]
+},
+{
+"method": "getNightVisionModeConfig",
+"module": "image",
+"key": "",
+"values": [
+"chn_id",
+"switch"
+]
+},
+{
+"method": "getNightlightStatus",
+"module": "nightlight",
+"key": "get_nightlight_status",
+"values": []
+},
+{
+"method": "getOfflineSwitchWiFi",
+"module": "wlan",
+"key": "get_offline_switch_wifi",
+"values": [
+"null"
+]
+},
+{
+"method": "getOneClickCallContact",
+"module": "call_manager",
+"key": "get_one_click_call_contacts",
+"values": []
+},
+{
+"method": "getOnvifSecurityCapability",
+"module": "security_capability",
+"key": "onvif_security_capability",
+"values": []
+},
+{
+"method": "getOnvifSecurityConfig",
+"module": "security_config",
+"key": "onvif_security_config",
+"values": []
+},
+{
+"method": "getOsd",
+"module": "OSD",
+"key": "",
+"values": [
+"date",
+"table"
+]
+},
+{
+"method": "getOsdCapability",
+"module": "osd_capability",
+"key": "",
+"values": [
+"capability",
+"table"
+]
+},
+{
+"method": "getOutdoorMode",
+"module": "wlan",
+"key": "get_outdoor_mode",
+"values": []
+},
+{
+"method": "getP2PSharePassword",
+"module": "user_management",
+"key": "get_p2p_sharepwd",
+"values": []
+},
+{
+"method": "getPackageDetectionConfig",
+"module": "package_detection",
+"key": "",
+"values": [
+"detection"
+]
+},
+{
+"method": "getPackageDetectionRecommendRegion",
+"module": "package_detection",
+"key": "",
+"values": []
+},
+{
+"method": "getPackageDetectionRegion",
+"module": "package_detection",
+"key": "table",
+"values": []
+},
+{
+"method": "getPanoramicVideoSchedule",
+"module": "panoramic_video",
+"key": "",
+"values": [
+"record_schedule"
+]
+},
+{
+"method": "getPanoramicVideoStatus",
+"module": "panoramic_video",
+"key": "get_panoramic_video_status",
+"values": [
+"null"
+]
+},
+{
+"method": "getPanoramicView",
+"module": "panoramic_view",
+"key": "get_panoramic_view",
+"values": []
+},
+{
+"method": "getPatrolAction",
+"module": "patrol",
+"key": "get_patrol_action",
+"values": []
+},
+{
+"method": "getPatrolInfo",
+"module": "patrol",
+"key": "get_patrol_info",
+"values": []
+},
+{
+"method": "getPatrolSchedule",
+"module": "patrol",
+"key": "get_patrol_schedule",
+"values": []
+},
+{
+"method": "getPatrolStatus",
+"module": "patrol",
+"key": "get_patrol_status",
+"values": []
+},
+{
+"method": "getPersonDetectionConfig",
+"module": "people_detection",
+"key": "",
+"values": [
+"chn_id"
+]
+},
+{
+"method": "getPetDetectionConfig",
+"module": "pet_detection",
+"key": "",
+"values": [
+"chn_id"
+]
+},
+{
+"method": "getPirDetCapability",
+"module": "pir_detection",
+"key": "",
+"values": [
+"pir_capability"
+]
+},
+{
+"method": "getPirDetConfig",
+"module": "pir_detection",
+"key": "",
+"values": [
+"pir_det"
+]
+},
+{
+"method": "getPirSensitivity",
+"module": "pir",
+"key": "",
+"values": [
+"chn_id",
+"config"
+]
+},
+{
+"method": "getPirSensitivity",
+"module": "pir_verify",
+"key": "null",
+"values": []
+},
+{
+"method": "getPresetConfig",
+"module": "preset",
+"key": "",
+"values": [
+"preset"
+]
+},
+{
+"method": "getPtzFollowPointingSetting",
+"module": "dual_cam_linkage",
+"key": "",
+"values": []
+},
+{
+"method": "getPtzInfo",
+"module": "motor",
+"key": "get_ptz_info",
+"values": []
+},
+{
+"method": "getQuickRespCapability",
+"module": "quick_resp",
+"key": "",
+"values": [
+"capability"
+]
+},
+{
+"method": "getQuickRespLanguage",
+"module": "quick_resp",
+"key": "",
+"values": []
+},
+{
+"method": "getQuickRespList",
+"module": "quick_resp",
+"key": "table",
+"values": [
+"quick_resp_audio"
+]
+},
+{
+"method": "getROIClarity",
+"module": "ROI",
+"key": "",
+"values": [
+"chn_id",
+"roi_clarity"
+]
+},
+{
+"method": "getROIClarityZone",
+"module": "ROI",
+"key": "",
+"values": [
+"chn_id",
+"roi_clarity_zone"
+]
+},
+{
+"method": "getROIClarityZoom",
+"module": "ROI",
+"key": "",
+"values": [
+"chn_id",
+"roi_clarity_zoom"
+]
+},
+{
+"method": "getRadarBasicInfo",
+"module": "radar_detection",
+"key": "",
+"values": [
+"basicInfo"
+]
+},
+{
+"method": "getRadarCapability",
+"module": "radar",
+"key": "",
+"values": [
+"radar_capability"
+]
+},
+{
+"method": "getReboot",
+"module": "timing_reboot",
+"key": "",
+"values": []
+},
+{
+"method": "getRecordPlan",
+"module": "record_plan",
+"key": "",
+"values": [
+"chn1_channel"
+]
+},
+{
+"method": "getRingPlay",
+"module": "ring",
+"key": "",
+"values": [
+"play"
+]
+},
+{
+"method": "getRingPlay",
+"module": "ring",
+"key": "null",
+"values": []
+},
+{
+"method": "getRingSoundConfig",
+"module": "ring",
+"key": "",
+"values": [
+"config"
+]
+},
+{
+"method": "getRingSoundConfig",
+"module": "ring",
+"key": "null",
+"values": []
+},
+{
+"method": "getRingStatus",
+"module": "ring",
+"key": "",
+"values": [
+"status"
+]
+},
+{
+"method": "getRingStatus",
+"module": "ring",
+"key": "null",
+"values": []
+},
+{
+"method": "getRotationStatus",
+"module": "image",
+"key": "",
+"values": [
+"switch"
+]
+},
+{
+"method": "getSafeFenceDetectionConfig",
+"module": "safefence_detection",
+"key": "",
+"values": [
+"detection"
+]
+},
+{
+"method": "getSafeFenceRegion",
+"module": "safefence_detection",
+"key": "table",
+"values": []
+},
+{
+"method": "getScanHubList",
+"module": "hub_manage",
+"key": "get_scan_hub_list",
+"values": []
+},
+{
+"method": "getScreen24HourClockConfig",
+"module": "lvgl_ui",
+"key": "",
+"values": [
+"screen_24_hour_clock_config"
+]
+},
+{
+"method": "getScreenFollowConfig",
+"module": "call_manager",
+"key": "get_face_track_config",
+"values": []
+},
+{
+"method": "getScreenTextModeConfig",
+"module": "lvgl_ui",
+"key": "",
+"values": [
+"screen_text_mode_config"
+]
+},
+{
+"method": "getSdCardFormatStatus",
+"module": "harddisk_manage",
+"key": "get_format_status",
+"values": []
+},
+{
+"method": "getSdCardStatus",
+"module": "harddisk_manage",
+"key": "table",
+"values": [
+"hd_info"
+]
+},
+{
+"method": "getSensorCapability",
+"module": "sensor",
+"key": "get_sensor_capability",
+"values": [
+"null"
+]
+},
+{
+"method": "getSirenStatus",
+"module": "siren",
+"key": "null",
+"values": []
+},
+{
+"method": "getSleepDataOfMultipleDays",
+"module": "sleep_statistics",
+"key": "get_multiple_days_data",
+"values": []
+},
+{
+"method": "getSleepStatisticsConfig",
+"module": "sleep_statistics",
+"key": "",
+"values": [
+"sleep"
+]
+},
+{
+"method": "getSmartAECapability",
+"module": "smart_ae",
+"key": "",
+"values": [
+"capability"
+]
+},
+{
+"method": "getSmartAEConfig",
+"module": "smart_ae",
+"key": "",
+"values": [
+"detection"
+]
+},
+{
+"method": "getSmartRespConfig",
+"module": "quick_resp",
+"key": "",
+"values": [
+"smart_resp_config"
+]
+},
+{
+"method": "getSmartTrackCapability",
+"module": "smart_track",
+"key": "",
+"values": [
+"smart_track_capability"
+]
+},
+{
+"method": "getSmartTrackConfig",
+"module": "smart_track",
+"key": "",
+"values": [
+"smart_track_info"
+]
+},
+{
+"method": "getSmartWhiteLampConfig",
+"module": "image",
+"key": "",
+"values": [
+"smart_white_lamp"
+]
+},
+{
+"method": "getSnoozeAlertStatus",
+"module": "snooze_alert",
+"key": "",
+"values": [
+"snooze_status"
+]
+},
+{
+"method": "getSplendidMomentBaby",
+"module": "splendid_moment",
+"key": "",
+"values": [
+"get_baby"
+]
+},
+{
+"method": "getSplendidMomentStorage",
+"module": "splendid_moment",
+"key": "",
+"values": [
+"get_storage"
+]
+},
+{
+"method": "getSplendidMomentSwitch",
+"module": "splendid_moment",
+"key": "",
+"values": [
+"get_switch"
+]
+},
+{
+"method": "getStatisticsDataOfMultipleDays",
+"module": "sleep_statistics",
+"key": "get_statistics_of_multiple_days",
+"values": []
+},
+{
+"method": "getStreamDiagnose",
+"module": "diagnose",
+"key": "get_stream_diagnose",
+"values": []
+},
+{
+"method": "getSwNetDev",
+"module": "network",
+"key": "get_sw_net_dev",
+"values": [
+"null"
+]
+},
+{
+"method": "getSwitchLockInfo",
+"module": "lock",
+"key": "",
+"values": [
+"switch_lock_info"
+]
+},
+{
+"method": "getTamperDetectionConfig",
+"module": "tamper_detection",
+"key": "",
+"values": [
+"chn_id",
+"tamper_det"
+]
+},
+{
+"method": "getTapoCareServiceList",
+"module": "tapo_care",
+"key": "",
+"values": [
+"service_list"
+]
+},
+{
+"method": "getTapoCareUploadResult",
+"module": "diagnose",
+"key": "get_upload_result",
+"values": []
+},
+{
+"method": "getTapoDetectionRegion",
+"module": "detection_region",
+"key": "table",
+"values": [
+"chn_id",
+"region_info"
+]
+},
+{
+"method": "getTargetTrackConfig",
+"module": "target_track",
+"key": "",
+"values": [
+"target_track_info"
+]
+},
+{
+"method": "getThirdAccount",
+"module": "user_management",
+"key": "",
+"values": [
+"third_account"
+]
+},
+{
+"method": "getThirdPartyCamera",
+"module": "video",
+"key": "",
+"values": [
+"third_party_camera"
+]
+},
+{
+"method": "getThirdPartyCompatibility",
+"module": "local_ctrl",
+"key": "",
+"values": [
+"third_party_setting"
+]
+},
+{
+"method": "getTimeAlarmCapbability",
+"module": "time_alarm",
+"key": "",
+"values": [
+"capability"
+]
+},
+{
+"method": "getTimeAlarmParams",
+"module": "time_alarm",
+"key": "table",
+"values": [
+"getParams"
+]
+},
+{
+"method": "getTimeAlarmSysAudio",
+"module": "time_alarm",
+"key": "",
+"values": [
+"getSysAudio"
+]
+},
+{
+"method": "getTimeDiagnose",
+"module": "diagnose",
+"key": "",
+"values": [
+"ntp"
+]
+},
+{
+"method": "getTimezone",
+"module": "system",
+"key": "",
+"values": [
+"basic"
+]
+},
+{
+"method": "getTrackBoxConfig",
+"module": "track_box",
+"key": "",
+"values": [
+"detection"
+]
+},
+{
+"method": "getTrafficPlanCfg",
+"module": "lte_manager",
+"key": "",
+"values": [
+"traffic_plan_cfg"
+]
+},
+{
+"method": "getTssScanDeviceList",
+"module": "tss_device_manage",
+"key": "tss_scan_device_list",
+"values": []
+},
+{
+"method": "getUpnpCapability",
+"module": "upnp_capability",
+"key": "capability",
+"values": []
+},
+{
+"method": "getUpnpInfo",
+"module": "upnpc",
+"key": "",
+"values": [
+"upnpc_info"
+]
+},
+{
+"method": "getUpnpPsk",
+"module": "cet",
+"key": "get_https_psk",
+"values": [
+"null"
+]
+},
+{
+"method": "getUserID",
+"module": "system",
+"key": "get_user_id",
+"values": [
+"null"
+]
+},
+{
+"method": "getVehicleDetectionConfig",
+"module": "vehicle_detection",
+"key": "",
+"values": [
+"chn_id"
+]
+},
+{
+"method": "getVideoCapability",
+"module": "video_capability",
+"key": "",
+"values": [
+"main",
+"minor"
+]
+},
+{
+"method": "getVideoQualities",
+"module": "video",
+"key": "",
+"values": [
+"main"
+]
+},
+{
+"method": "getVolumeSetting",
+"module": "volume_setting",
+"key": "get_volume_setting",
+"values": []
+},
+{
+"method": "getVolumeSettingCapability",
+"module": "volume_setting",
+"key": "",
+"values": [
+"capability"
+]
+},
+{
+"method": "getWakeUpConfig",
+"module": "wake_up",
+"key": "",
+"values": [
+"config"
+]
+},
+{
+"method": "getWakeUpConfig",
+"module": "wake_up",
+"key": "null",
+"values": []
+},
+{
+"method": "getWallpaperDisplay",
+"module": "lvgl_ui",
+"key": "",
+"values": [
+"screen_off_display"
+]
+},
+{
+"method": "getWallpaperDisplayTime",
+"module": "lvgl_ui",
+"key": "",
+"values": [
+"screen_off_plan"
+]
+},
+{
+"method": "getWallpaperList",
+"module": "lvgl_ui",
+"key": "table",
+"values": [
+"wallpaper"
+]
+},
+{
+"method": "getWeatherInfo",
+"module": "ui_data",
+"key": "",
+"values": [
+"weather_info"
+]
+},
+{
+"method": "getWebrtcCapability",
+"module": "webrtc_capability",
+"key": "",
+"values": [
+"capability"
+]
+},
+{
+"method": "getWhitelampCapability",
+"module": "image_capability",
+"key": "",
+"values": [
+"white_lamp"
+]
+},
+{
+"method": "getWhitelampConfig",
+"module": "image",
+"key": "",
+"values": [
+"chn_id",
+"switch"
+]
+},
+{
+"method": "getWhitelampStatus",
+"module": "image",
+"key": "get_wtl_status",
+"values": [
+"null"
+]
+},
+{
+"method": "getWifiBackup",
+"module": "hub_manage",
+"key": "",
+"values": [
+"wifi_backup"
+]
+},
+{
+"method": "getWtlDnSwitchModeConfig",
+"module": "image",
+"key": "",
+"values": [
+"wtl_dn_switch_mode"
+]
+},
+{
+"method": "gotoPanoramicPosition",
+"module": "panoramic_view",
+"key": "goto_position",
+"values": []
+},
+{
+"method": "listSplendidMomentTimeStamps",
+"module": "splendid_moment",
+"key": "",
+"values": [
+"list_timestamps"
+]
+},
+{
+"method": "manualCalibrate",
+"module": "motor",
+"key": "manual_cali",
+"values": []
+},
+{
+"method": "manualFloodlightOp",
+"module": "floodlight",
+"key": "manual_floodlight_op",
+"values": []
+},
+{
+"method": "manualNightlightOp",
+"module": "nightlight",
+"key": "manual_nightlight_op",
+"values": []
+},
+{
+"method": "modifyDualCamSmartTargetSetting",
+"module": "dual_cam_linkage",
+"key": "modify_dual_cam_smart_target_setting",
+"values": []
+},
+{
+"method": "modifyLinkageTargetSetting",
+"module": "dual_cam_linkage",
+"key": "modify_linkage_target_setting",
+"values": []
+},
+{
+"method": "modifyPtzFollowPointingSetting",
+"module": "dual_linkage_ptz",
+"key": "modify_ptz_follow_pointing_setting",
+"values": []
+},
+{
+"method": "modifyUsrDefAudio",
+"module": "msg_alarm",
+"key": "modify_audio",
+"values": []
+},
+{
+"method": "motorMove",
+"module": "motor",
+"key": "move",
+"values": []
+},
+{
+"method": "motorMoveToPreset",
+"module": "preset",
+"key": "goto_preset",
+"values": []
+},
+{
+"method": "playQuickResp",
+"module": "quick_resp",
+"key": "play_quick_resp_audio",
+"values": [
+"0",
+"1"
+]
+},
+{
+"method": "playTimeAlarmTrialAudio",
+"module": "time_alarm",
+"key": "playTrialAudio",
+"values": []
+},
+{
+"method": "readDualCamSmartTargetSetting",
+"module": "dual_cam_linkage",
+"key": "read_dual_cam_smart_target_setting",
+"values": []
+},
+{
+"method": "readLinkageTargetSetting",
+"module": "dual_cam_linkage",
+"key": "read_linkage_target_setting",
+"values": []
+},
+{
+"method": "rebootDevice",
+"module": "system",
+"key": "",
+"values": []
+},
+{
+"method": "removeGalleryStorage",
+"module": "harddisk_manage",
+"key": "null",
+"values": []
+},
+{
+"method": "reset",
+"module": "system",
+"key": "reset",
+"values": []
+},
+{
+"method": "resetConfigOnly",
+"module": "system",
+"key": "resetConfigOnly",
+"values": []
+},
+{
+"method": "resetConnection",
+"module": "playback",
+"key": "null",
+"values": []
+},
+{
+"method": "reverseWhitelampStatus",
+"module": "image",
+"key": "reverse_wtl_status",
+"values": [
+"null"
+]
+},
+{
+"method": "scanApList",
+"module": "on_boarding",
+"key": "scan",
+"values": []
+},
+{
+"method": "searchCurrentVideoWithUTC",
+"module": "playback",
+"key": "search_current_video_with_utc",
+"values": []
+},
+{
+"method": "searchDateWithSleepData",
+"module": "sleep_statistics",
+"key": "search_date_with_data",
+"values": []
+},
+{
+"method": "searchDateWithVideo",
+"module": "playback",
+"key": "search_year_utility",
+"values": []
+},
+{
+"method": "searchDetectionList",
+"module": "playback",
+"key": "search_detection_list",
+"values": []
+},
+{
+"method": "searchNVRDateWithVideo",
+"module": "playback",
+"key": "search_year_utility",
+"values": []
+},
+{
+"method": "searchNVRSubEventWithDay",
+"module": "playback",
+"key": "search_detection_utility",
+"values": []
+},
+{
+"method": "searchNVRVideoWithDay",
+"module": "playback",
+"key": "search_video_utility",
+"values": []
+},
+{
+"method": "searchSplendidMomentFileList",
+"module": "splendid_moment",
+"key": "search_file_list",
+"values": []
+},
+{
+"method": "searchSplendidMomentFileListMonth",
+"module": "splendid_moment",
+"key": "search_file_list_month",
+"values": []
+},
+{
+"method": "searchVideoOfDay",
+"module": "playback",
+"key": "search_video_utility",
+"values": []
+},
+{
+"method": "searchVideoWithUTC",
+"module": "playback",
+"key": "search_video_with_utc",
+"values": []
+},
+{
+"method": "selectFastOnboardingDevice",
+"module": "wlan_chime_ctrl",
+"key": "select_device",
+"values": []
+},
+{
+"method": "selectFastOnboardingDeviceAction",
+"module": "wlan_chime_ctrl",
+"key": "select_device_action",
+"values": []
+},
+{
+"method": "sendTestMessage",
+"module": "lte_manager",
+"key": "send_test_message",
+"values": []
+},
+{
+"method": "set4gBackupCfg",
+"module": "lte_manager",
+"key": "4g_backup_cfg",
+"values": []
+},
+{
+"method": "setAccountEnabled",
+"module": "user_management",
+"key": "set_account_enabled",
+"values": [
+"third_account"
+]
+},
+{
+"method": "setAlarmConfig",
+"module": "msg_alarm",
+"key": "null",
+"values": []
+},
+{
+"method": "setAlarmDetectionConfig",
+"module": "alarm_detection",
+"key": "detection",
+"values": []
+},
+{
+"method": "setAlarmPlan",
+"module": "msg_alarm_plan",
+"key": "null",
+"values": []
+},
+{
+"method": "setAlarmRingStatus",
+"module": "ring",
+"key": "alarm_status",
+"values": []
+},
+{
+"method": "setAlarmRingStatus",
+"module": "ring",
+"key": "null",
+"values": []
+},
+{
+"method": "setAlertConfig",
+"module": "msg_alarm",
+"key": "chn1_msg_alarm_info",
+"values": []
+},
+{
+"method": "setAlertEventType",
+"module": "msg_alarm",
+"key": "msg_alarm_type",
+"values": []
+},
+{
+"method": "setAlertPlan",
+"module": "msg_alarm_plan",
+"key": "chn1_msg_alarm_plan",
+"values": []
+},
+{
+"method": "setAntiTheftEnable",
+"module": "anti_theft",
+"key": "config",
+"values": []
+},
+{
+"method": "setAntiTheftLockOnce",
+"module": "anti_theft",
+"key": "anti_theft_lock",
+"values": []
+},
+{
+"method": "setAovBatteryBased",
+"module": "aov",
+"key": "battery_based",
+"values": []
+},
+{
+"method": "setAovConfig",
+"module": "aov",
+"key": "config",
+"values": []
+},
+{
+"method": "setApnConfig",
+"module": "lte_manager",
+"key": "apn",
+"values": []
+},
+{
+"method": "setApproachDetectionConfig",
+"module": "approach_detection",
+"key": "detection",
+"values": []
+},
+{
+"method": "setAutoAnswerContact",
+"module": "call_manager",
+"key": "set_auto_answer_contact",
+"values": []
+},
+{
+"method": "setAutoSw",
+"module": "network",
+"key": "set_auto_sw",
+"values": []
+},
+{
+"method": "setBCDConfig",
+"module": "sound_detection",
+"key": "bcd",
+"values": []
+},
+{
+"method": "setBabyLeaveDetectionConfig",
+"module": "baby_leave_detection",
+"key": "detection",
+"values": []
+},
+{
+"method": "setBabySleepDetectionConfig",
+"module": "baby_sleep_detection",
+"key": "detection",
+"values": []
+},
+{
+"method": "setBarkDetectionConfig",
+"module": "bark_detection",
+"key": "detection",
+"values": []
+},
+{
+"method": "setBindHubConfig",
+"module": "hub_manage",
+"key": "hub_config_set",
+"values": []
+},
+{
+"method": "setBindedSensor",
+"module": "sensor",
+"key": "set_binded_sensor",
+"values": []
+},
+{
+"method": "setButtonConfig",
+"module": "physical_button",
+"key": "multifunc_btn_cfg",
+"values": []
+},
+{
+"method": "setCaregiverDetectionConfig",
+"module": "caregiver_detection",
+"key": "detection",
+"values": []
+},
+{
+"method": "setChimeRingPlan",
+"module": "chime_ring_plan",
+"key": "chn1_chime_ring_plan",
+"values": []
+},
+{
+"method": "setChnAlias",
+"module": "system",
+"key": "sub_info_chn",
+"values": [
+"chn_id"
+]
+},
+{
+"method": "setCircularRecordingConfig",
+"module": "harddisk_manage",
+"key": "harddisk",
+"values": [
+"off",
+"on"
+]
+},
+{
+"method": "setCloudServerType",
+"module": "on_boarding",
+"key": "set_cloud_server_type",
+"values": []
+},
+{
+"method": "setCloudServerType",
+"module": "server_type",
+"key": "null",
+"values": []
+},
+{
+"method": "setCoverConfig",
+"module": "cover",
+"key": "cover",
+"values": []
+},
+{
+"method": "setDataTrafficLimitJson",
+"module": "lte_manager",
+"key": "data_traffic_limit",
+"values": []
+},
+{
+"method": "setDataTrafficNotification",
+"module": "lte_manager",
+"key": "data_traffic_notification",
+"values": []
+},
+{
+"method": "setDayNightModeConfig",
+"module": "image",
+"key": "chn_id",
+"values": [
+"common_chn"
+]
+},
+{
+"method": "setDayNightModeConfig",
+"module": "image",
+"key": "common",
+"values": []
+},
+{
+"method": "setDetectionClip",
+"module": "playback",
+"key": "set_detection_clip",
+"values": []
+},
+{
+"method": "setDetectionClip",
+"module": "playback",
+"key": "set_detection_clip_chn",
+"values": []
+},
+{
+"method": "setDetectionConfig",
+"module": "motion_detection",
+"key": "motion_det",
+"values": []
+},
+{
+"method": "setDetectionMode",
+"module": "detection_region",
+"key": "mode_status",
+"values": []
+},
+{
+"method": "setDetectionMode",
+"module": "detection_region",
+"key": "mode_status_chn",
+"values": []
+},
+{
+"method": "setDeviceAlias",
+"module": "system",
+"key": "",
+"values": []
+},
+{
+"method": "setDeviceAvatar",
+"module": "system",
+"key": "",
+"values": []
+},
+{
+"method": "setDeviceLanguage",
+"module": "system",
+"key": "device_language",
+"values": []
+},
+{
+"method": "setDeviceLocation",
+"module": "system",
+"key": "",
+"values": []
+},
+{
+"method": "setDeviceRegion",
+"module": "system",
+"key": "basic",
+"values": []
+},
+{
+"method": "setDiagnoseMode",
+"module": "system",
+"key": "",
+"values": []
+},
+{
+"method": "setDnSwitchModeConfig",
+"module": "image",
+"key": "dn_switch_mode",
+"values": []
+},
+{
+"method": "setDualCamLinkage",
+"module": "dual_cam_linkage",
+"key": "linkage_state",
+"values": []
+},
+{
+"method": "setExpressionDetectionConfig",
+"module": "expression_detection",
+"key": "detection",
+"values": []
+},
+{
+"method": "setFaceDetectionConfig",
+"module": "face_detection",
+"key": "detection",
+"values": []
+},
+{
+"method": "setFaceNotificationConfig",
+"module": "face_detection",
+"key": "set_notify_list",
+"values": []
+},
+{
+"method": "setFacecoverDetectionConfig",
+"module": "facecover_detection",
+"key": "detection",
+"values": []
+},
+{
+"method": "setFirmwareAutoUpgradeConfig",
+"module": "auto_upgrade",
+"key": "common",
+"values": []
+},
+{
+"method": "setFloodlightConfig",
+"module": "floodlight",
+"key": "config",
+"values": []
+},
+{
+"method": "setFloodlightDetEvtType",
+"module": "floodlight",
+"key": "floodlight_det_type",
+"values": []
+},
+{
+"method": "setFloodlightFadeEnable",
+"module": "floodlight",
+"key": "set_floodlight_fade_enable",
+"values": [
+"off",
+"on"
+]
+},
+{
+"method": "setFloodlightPirTrigPlan",
+"module": "floodlight",
+"key": "chn1_flood_trig_plan",
+"values": []
+},
+{
+"method": "setForceWhitelampState",
+"module": "image",
+"key": "switch",
+"values": []
+},
+{
+"method": "setFrameRate",
+"module": "video",
+"key": "set_frame_rate",
+"values": []
+},
+{
+"method": "setGlassDetectionConfig",
+"module": "glass_detection",
+"key": "detection",
+"values": []
+},
+{
+"method": "setHoverDetectionConfig",
+"module": "hover_detection",
+"key": "detection",
+"values": []
+},
+{
+"method": "setHprDetectionConfig",
+"module": "hpr_detection",
+"key": "detection",
+"values": []
+},
+{
+"method": "setHubRingPlan",
+"module": "hub_ring_plan",
+"key": "chn1_hub_ring_plan",
+"values": []
+},
+{
+"method": "setHubRingSoundConfig",
+"module": "hub_ring",
+"key": "config",
+"values": []
+},
+{
+"method": "setHubRingStatus",
+"module": "hub_ring",
+"key": "config",
+"values": []
+},
+{
+"method": "setImageLumaConfig",
+"module": "image",
+"key": "common",
+"values": []
+},
+{
+"method": "setImageStyleConfig",
+"module": "image",
+"key": "common",
+"values": []
+},
+{
+"method": "setInfLampType",
+"module": "image",
+"key": "inf_lamp",
+"values": []
+},
+{
+"method": "setIntrusionDetectionConfig",
+"module": "intrusion_detection",
+"key": "detection",
+"values": []
+},
+{
+"method": "setIntrusionDetectionSchedule",
+"module": "intrusion_detection",
+"key": "arming_schedule",
+"values": []
+},
+{
+"method": "setLanguage",
+"module": "language",
+"key": "null",
+"values": []
+},
+{
+"method": "setLanguage",
+"module": "on_boarding",
+"key": "set_language",
+"values": []
+},
+{
+"method": "setLdc",
+"module": "image",
+"key": "switch",
+"values": [
+"off",
+"on"
+]
+},
+{
+"method": "setLedColor",
+"module": "led",
+"key": "color",
+"values": []
+},
+{
+"method": "setLedStatus",
+"module": "led",
+"key": "config",
+"values": [
+"off",
+"on"
+]
+},
+{
+"method": "setLensMaskConfig",
+"module": "lens_mask",
+"key": "lens_mask_info",
+"values": [
+"config",
+"off",
+"on"
+]
+},
+{
+"method": "setLightFrequencyInfo",
+"module": "image",
+"key": "common",
+"values": []
+},
+{
+"method": "setLinecrossingDetectionConfig",
+"module": "linecrossing_detection",
+"key": "detection",
+"values": []
+},
+{
+"method": "setLinecrossingDetectionSchedule",
+"module": "linecrossing_detection",
+"key": "arming_schedule",
+"values": []
+},
+{
+"method": "setLocalCtrl",
+"module": "local_ctrl",
+"key": "set_local_ctrl",
+"values": []
+},
+{
+"method": "setLockStatusV2",
+"module": "lock",
+"key": "lock_status",
+"values": []
+},
+{
+"method": "setManualAlarm",
+"module": "msg_alarm",
+"key": "manual_alarm_info",
+"values": []
+},
+{
+"method": "setMarkerBoxConfig",
+"module": "marker_box",
+"key": "detection",
+"values": []
+},
+{
+"method": "setMediaEncrypt",
+"module": "cet",
+"key": "media_encrypt",
+"values": [
+"on"
+]
+},
+{
+"method": "setMeowDetectionConfig",
+"module": "meow_detection",
+"key": "detection",
+"values": []
+},
+{
+"method": "setMicrophoneVolume",
+"module": "audio_config",
+"key": "microphone",
+"values": []
+},
+{
+"method": "setMobileTrafficData",
+"module": "lte_manager",
+"key": "set_mobile_traffic_usage",
+"values": []
+},
+{
+"method": "setMsgPushConfig",
+"module": "msg_push",
+"key": "chn1_msg_push_info",
+"values": []
+},
+{
+"method": "setMsgPushEventList",
+"module": "msg_push",
+"key": "msg_push_event",
+"values": []
+},
+{
+"method": "setMsgPushPlan",
+"module": "msg_push_plan",
+"key": "chn1_msg_push_plan",
+"values": []
+},
+{
+"method": "setMusicConfig",
+"module": "music",
+"key": "config",
+"values": []
+},
+{
+"method": "setMusicList",
+"module": "music",
+"key": "set_music_list",
+"values": []
+},
+{
+"method": "setMusicState",
+"module": "music",
+"key": "set_music_play_state",
+"values": []
+},
+{
+"method": "setNameplateLightConfig",
+"module": "nameplatelight",
+"key": "config",
+"values": []
+},
+{
+"method": "setNetworkInterfaces",
+"module": "protocol",
+"key": "set_network_interfaces",
+"values": []
+},
+{
+"method": "setNightModePlan",
+"module": "shed_night_plan",
+"key": "chn1_shed_night_plan",
+"values": []
+},
+{
+"method": "setNightVisionModeConfig",
+"module": "image",
+"key": "chn_id",
+"values": [
+"switch_chn"
+]
+},
+{
+"method": "setNightVisionModeConfig",
+"module": "image",
+"key": "switch",
+"values": []
+},
+{
+"method": "setNightlightConfig",
+"module": "nightlight",
+"key": "config",
+"values": []
+},
+{
+"method": "setOfflineSwitchWiFi",
+"module": "wlan",
+"key": "set_offline_switch_wifi",
+"values": []
+},
+{
+"method": "setOneClickCallContact",
+"module": "call_manager",
+"key": "set_one_click_call_contacts",
+"values": []
+},
+{
+"method": "setOsd",
+"module": "OSD",
+"key": "date",
+"values": []
+},
+{
+"method": "setOsd",
+"module": "OSD",
+"key": "logo",
+"values": [
+"off",
+"on"
+]
+},
+{
+"method": "setOsd",
+"module": "cet",
+"key": "media_encrypt",
+"values": [
+"basic",
+"chn1_channel",
+"on"
+]
+},
+{
+"method": "setOutdoorMode",
+"module": "wlan",
+"key": "set_outdoor_mode",
+"values": []
+},
+{
+"method": "setPackageDetectionConfig",
+"module": "package_detection",
+"key": "detection",
+"values": []
+},
+{
+"method": "setPanoramicVideoSchedule",
+"module": "panoramic_video",
+"key": "set_panoramic_video_schedule",
+"values": []
+},
+{
+"method": "setPanoramicVideoStatus",
+"module": "panoramic_video",
+"key": "set_panoramic_video_status",
+"values": []
+},
+{
+"method": "setPanoramicView",
+"module": "panoramic_view",
+"key": "set_panoramic_view",
+"values": []
+},
+{
+"method": "setPatrolSchedule",
+"module": "patrol",
+"key": "set_patrol_schedule",
+"values": []
+},
+{
+"method": "setPatrolSequence",
+"module": "patrol",
+"key": "set_patrol_sequence",
+"values": []
+},
+{
+"method": "setPatrolStatus",
+"module": "patrol",
+"key": "set_patrol_status",
+"values": []
+},
+{
+"method": "setPersonDetectionConfig",
+"module": "people_detection",
+"key": "detection",
+"values": [
+"detection",
+"on"
+]
+},
+{
+"method": "setPetDetectionConfig",
+"module": "pet_detection",
+"key": "detection",
+"values": []
+},
+{
+"method": "setPirDetConfig",
+"module": "pir_detection",
+"key": "pir_det",
+"values": []
+},
+{
+"method": "setPirSensitivity",
+"module": "pir",
+"key": "config",
+"values": []
+},
+{
+"method": "setPirSensitivity",
+"module": "pir",
+"key": "config_chn",
+"values": [
+"chn_id",
+"sensitivity"
+]
+},
+{
+"method": "setPirSensitivity",
+"module": "pir_verify",
+"key": "null",
+"values": []
+},
+{
+"method": "setPirTestMode",
+"module": "pir",
+"key": "set_pir_test_mode",
+"values": []
+},
+{
+"method": "setPreDownloadInfo",
+"module": "data_download",
+"key": "download_info",
+"values": []
+},
+{
+"method": "setPreWakeup",
+"module": "preWakeUp",
+"key": "child_device_list",
+"values": []
+},
+{
+"method": "setPrivacyZoneConfig",
+"module": "cover",
+"key": "cover",
+"values": []
+},
+{
+"method": "setQuickRespLanguage",
+"module": "quick_resp",
+"key": "",
+"values": []
+},
+{
+"method": "setQuickRespLanguage",
+"module": "quick_resp",
+"key": "null",
+"values": []
+},
+{
+"method": "setQuickRespList",
+"module": "quick_resp",
+"key": "quick_resp_audio",
+"values": []
+},
+{
+"method": "setROIClarity",
+"module": "ROI",
+"key": "chn_id",
+"values": [
+"roi_clarity_chn"
+]
+},
+{
+"method": "setROIClarity",
+"module": "ROI",
+"key": "roi_set_clarity",
+"values": []
+},
+{
+"method": "setROIClarityZone",
+"module": "ROI",
+"key": "chn_id",
+"values": [
+"roi_clarity_zone_chn"
+]
+},
+{
+"method": "setROIClarityZone",
+"module": "ROI",
+"key": "roi_set_clarity_zone",
+"values": []
+},
+{
+"method": "setROIClarityZoom",
+"module": "ROI",
+"key": "chn_id",
+"values": [
+"roi_clarity_zoom_chn"
+]
+},
+{
+"method": "setROIClarityZoom",
+"module": "ROI",
+"key": "roi_set_clarity_zoom",
+"values": []
+},
+{
+"method": "setRadarBasicInfo",
+"module": "radar_detection",
+"key": "basicInfo",
+"values": []
+},
+{
+"method": "setReboot",
+"module": "timing_reboot",
+"key": "",
+"values": []
+},
+{
+"method": "setRecordAudio",
+"module": "audio_config",
+"key": "record_audio",
+"values": [
+"off",
+"on"
+]
+},
+{
+"method": "setRecordPlan",
+"module": "record_plan",
+"key": "chn1_channel",
+"values": []
+},
+{
+"method": "setResolution",
+"module": "video",
+"key": "set_resolution",
+"values": []
+},
+{
+"method": "setRingPlay",
+"module": "ring",
+"key": "play",
+"values": []
+},
+{
+"method": "setRingSoundConfig",
+"module": "ring",
+"key": "config",
+"values": []
+},
+{
+"method": "setRingStatus",
+"module": "ring",
+"key": "config",
+"values": []
+},
+{
+"method": "setRingStatus",
+"module": "ring",
+"key": "status",
+"values": []
+},
+{
+"method": "setRotationStatus",
+"module": "image",
+"key": "switch",
+"values": []
+},
+{
+"method": "setRtspSecurityConfig",
+"module": "security_config",
+"key": "rtsp_security_config",
+"values": []
+},
+{
+"method": "setSDSecurityStatus",
+"module": "sd_security",
+"key": "set_sd_security_status",
+"values": []
+},
+{
+"method": "setSafeFenceDetectionConfig",
+"module": "safefence_detection",
+"key": "detection",
+"values": []
+},
+{
+"method": "setScreen24HourClockConfig",
+"module": "lvgl_ui",
+"key": "screen_24_hour_clock_config",
+"values": []
+},
+{
+"method": "setScreenBrightness",
+"module": "screen_config",
+"key": "display_config",
+"values": []
+},
+{
+"method": "setScreenFollowConfig",
+"module": "call_manager",
+"key": "set_face_track_config",
+"values": []
+},
+{
+"method": "setScreenOffTime",
+"module": "screen_config",
+"key": "display_config",
+"values": []
+},
+{
+"method": "setScreenTextModeConfig",
+"module": "lvgl_ui",
+"key": "screen_text_mode_config",
+"values": []
+},
+{
+"method": "setSha1Password",
+"module": "system",
+"key": "sha1_password",
+"values": []
+},
+{
+"method": "setSleepStatisticsConfig",
+"module": "sleep_statistics",
+"key": "sleep",
+"values": []
+},
+{
+"method": "setSmartAEConfig",
+"module": "smart_ae",
+"key": "detection",
+"values": []
+},
+{
+"method": "setSmartRespConfig",
+"module": "quick_resp",
+"key": "smart_resp_config",
+"values": []
+},
+{
+"method": "setSmartRespStatus",
+"module": "quick_resp",
+"key": "smart_resp_status",
+"values": [
+"off",
+"on"
+]
+},
+{
+"method": "setSmartTrackConfig",
+"module": "smart_track",
+"key": "smart_track_info",
+"values": []
+},
+{
+"method": "setSmartWhiteLampConfig",
+"module": "image",
+"key": "smart_white_lamp",
+"values": []
+},
+{
+"method": "setSnoozeAlertStatus",
+"module": "snooze_alert",
+"key": "snooze_status",
+"values": []
+},
+{
+"method": "setSpeakerVolume",
+"module": "audio_config",
+"key": "speaker",
+"values": []
+},
+{
+"method": "setSplendidMomentSwitch",
+"module": "splendid_moment",
+"key": "set_switch",
+"values": []
+},
+{
+"method": "setSwNetDev",
+"module": "network",
+"key": "set_sw_net_dev",
+"values": []
+},
+{
+"method": "setSwitchLockInfo",
+"module": "lock",
+"key": "switch_lock_info",
+"values": []
+},
+{
+"method": "setTamperDetectionConfig",
+"module": "tamper_detection",
+"key": "tamper_det",
+"values": []
+},
+{
+"method": "setTargetTrackConfig",
+"module": "target_track",
+"key": "target_track_info",
+"values": []
+},
+{
+"method": "setThirdPartyCamera",
+"module": "video",
+"key": "third_party_camera",
+"values": []
+},
+{
+"method": "setThirdPartyCompatibility",
+"module": "local_ctrl",
+"key": "third_party_setting",
+"values": []
+},
+{
+"method": "setTimeAlarmParams",
+"module": "time_alarm",
+"key": "setParams",
+"values": []
+},
+{
+"method": "setTimezone",
+"module": "system",
+"key": "basic",
+"values": [
+"chn1_channel"
+]
+},
+{
+"method": "setTrackBoxConfig",
+"module": "track_box",
+"key": "detection",
+"values": [
+"off",
+"on"
+]
+},
+{
+"method": "setTrafficPlanCfg",
+"module": "lte_manager",
+"key": "traffic_plan_cfg",
+"values": []
+},
+{
+"method": "setUnBindedSensor",
+"module": "sensor",
+"key": "set_unbinded_sensor",
+"values": []
+},
+{
+"method": "setUpnpCommStatus",
+"module": "upnpc",
+"key": "communicate",
+"values": []
+},
+{
+"method": "setUpnpInfo",
+"module": "upnpc",
+"key": "upnpc_info",
+"values": []
+},
+{
+"method": "setVehicleDetectionConfig",
+"module": "vehicle_detection",
+"key": "detection",
+"values": []
+},
+{
+"method": "setVideoEncodeType",
+"module": "video",
+"key": "main",
+"values": []
+},
+{
+"method": "setVoiceEnhancement",
+"module": "audio_config",
+"key": "voice_enhancement",
+"values": []
+},
+{
+"method": "setVolumeSetting",
+"module": "volume_setting",
+"key": "set_volume_setting",
+"values": []
+},
+{
+"method": "setWakeUpConfig",
+"module": "wake_up",
+"key": "config",
+"values": []
+},
+{
+"method": "setWallpaperDisplay",
+"module": "lvgl_ui",
+"key": "set_screen_off_display",
+"values": []
+},
+{
+"method": "setWallpaperDisplayTime",
+"module": "lvgl_ui",
+"key": "set_wallpaper_time",
+"values": []
+},
+{
+"method": "setWeatherInfo",
+"module": "ui_data",
+"key": "weather_info",
+"values": []
+},
+{
+"method": "setWhitelampConfig",
+"module": "image",
+"key": "chn_id",
+"values": [
+"switch_chn"
+]
+},
+{
+"method": "setWhitelampConfig",
+"module": "image",
+"key": "switch",
+"values": []
+},
+{
+"method": "setWtlDnSwitchModeConfig",
+"module": "image",
+"key": "wtl_dn_switch_mode",
+"values": []
+},
+{
+"method": "singalMove",
+"module": "motor",
+"key": "movestep",
+"values": []
+},
+{
+"method": "softReset",
+"module": "system",
+"key": "soft_reset",
+"values": [
+"soft_reset"
+]
+},
+{
+"method": "startFirmwareUpgrade",
+"module": "cloud_config",
+"key": "fw_download",
+"values": [
+"null"
+]
+},
+{
+"method": "startPanoramicView",
+"module": "panoramic_view",
+"key": "move_start",
+"values": []
+},
+{
+"method": "startPtzFollowPointing",
+"module": "dual_linkage_ptz",
+"key": "start_ptz_follow_pointing",
+"values": []
+},
+{
+"method": "startROIClarityPeek",
+"module": "ROI",
+"key": "roi_start_clarity_peek",
+"values": []
+},
+{
+"method": "startScanHub",
+"module": "hub_manage",
+"key": "start_scan_hub",
+"values": []
+},
+{
+"method": "stopBleService",
+"module": "ble_onboarding",
+"key": "stop_ble_service",
+"values": []
+},
+{
+"method": "stopMove",
+"module": "motor",
+"key": "stop",
+"values": [
+"null"
+]
+},
+{
+"method": "stopPanoramicView",
+"module": "panoramic_view",
+"key": "move_stop",
+"values": []
+},
+{
+"method": "stopQuickResp",
+"module": "quick_resp",
+"key": "stop_quick_resp_audio",
+"values": []
+},
+{
+"method": "stopROIClarityPeek",
+"module": "ROI",
+"key": "stop_roi_clarity_peek",
+"values": []
+},
+{
+"method": "stopScanHub",
+"module": "hub_manage",
+"key": "stop_scan_hub",
+"values": []
+},
+{
+"method": "testUsrDefAudio",
+"module": "msg_alarm",
+"key": "test_usr_def_audio",
+"values": [
+"0",
+"1",
+"stop"
+]
+},
+{
+"method": "testWiFiSignal",
+"module": "network",
+"key": "test_wifi_signal",
+"values": [
+"null"
+]
+},
+{
+"method": "unbindCloud",
+"module": "cloud_config",
+"key": "unbind",
+"values": []
+},
+{
+"method": "updateLocalNoc",
+"module": "local_ctrl",
+"key": "update_local_noc",
+"values": []
+},
+{
+"method": "updateSplendidMomentBaby",
+"module": "splendid_moment",
+"key": "update_baby",
+"values": []
+},
+{
+"method": "updateSplendidMomentScore",
+"module": "splendid_moment",
+"key": "update_score",
+"values": []
+},
+{
+"method": "verifyThirdAccount",
+"module": "user_management",
+"key": "verify_third_account",
+"values": []
+}
+]
