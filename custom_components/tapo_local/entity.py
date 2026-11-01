@@ -14,7 +14,7 @@ from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers.device_registry import CONNECTION_NETWORK_MAC, DeviceInfo, format_mac
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .api import TapoCommandError
+from tapolocal import TapoCommandError
 
 
 def g(d: Any, *path: Any) -> Any:

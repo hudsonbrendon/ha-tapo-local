@@ -13,7 +13,7 @@ from homeassistant.exceptions import ConfigEntryAuthFailed, ConfigEntryNotReady
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
-from .api import TapoAuthError, TapoCloud, TapoCloudError, TapoLocal, TapoMFARequired
+from tapolocal import TapoAuthError, TapoCloud, TapoCloudError, TapoLocal, TapoMFARequired
 from .const import (
     CONF_KIND, CONF_RTSP_PASSWORD, CONF_RTSP_USERNAME, CONF_TERMINAL_UUID, CONF_TOKEN, CONF_URL,
     DOMAIN, KIND_CLOUD,

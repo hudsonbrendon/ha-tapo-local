@@ -11,7 +11,7 @@ from homeassistant.const import CONF_HOST, CONF_PASSWORD, CONF_USERNAME
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.device_registry import format_mac
 
-from .api import TapoAuthError, TapoCloud, TapoCloudError, TapoLocal, TapoMFARequired
+from tapolocal import TapoAuthError, TapoCloud, TapoCloudError, TapoLocal, TapoMFARequired
 from .const import CONF_KIND, CONF_RTSP_PASSWORD, CONF_RTSP_USERNAME, CONF_TERMINAL_UUID, CONF_TOKEN, CONF_URL, DOMAIN, KIND_CAMERA, KIND_CLOUD
 
 CONF_SOURCE_ENTRY = "source_entry"
@@ -63,13 +63,11 @@ class TapoPlusFlow(ConfigFlow, domain=DOMAIN):
                              rtsp_pass: str | None = None) -> ConfigFlowResult:
         local = TapoLocal(host, password)
         try:
-            data = await self.hass.async_add_executor_job(
-                local._multi, [("getDeviceInfo", {"device_info": {"name": ["basic_info"]}})])
+            info = await self.hass.async_add_executor_job(local.device_info)
         except TapoAuthError:
             return self._camera_form("camera", {"base": "invalid_auth"})
         except Exception:  # pytapo: rede/timeout
             return self._camera_form("camera", {"base": "cannot_connect"})
-        info = data["getDeviceInfo"]["device_info"]["basic_info"]
         await self.async_set_unique_id(format_mac(info["mac"]))
         self._abort_if_unique_id_configured(updates={CONF_HOST: host, CONF_PASSWORD: password})
         return self.async_create_entry(
@@ -139,8 +137,7 @@ class TapoPlusFlow(ConfigFlow, domain=DOMAIN):
         if user_input is not None:
             local = TapoLocal(entry.data[CONF_HOST], user_input[CONF_PASSWORD])
             try:
-                await self.hass.async_add_executor_job(
-                    local._multi, [("getDeviceInfo", {"device_info": {"name": ["basic_info"]}})])
+                await self.hass.async_add_executor_job(local.device_info)
             except TapoAuthError:
                 errors["base"] = "invalid_auth"
             except Exception:

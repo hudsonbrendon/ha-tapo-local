@@ -74,7 +74,9 @@ def sd_bytes(d: dict, key: str) -> float | None:
 
 
 def sd_used_pct(d: dict) -> float | None:
-    total, free = sd_bytes(d, "total_space_accurate"), sd_bytes(d, "free_space_accurate")
+    # logo após formatar, a C200 reporta total 0 B por um tempo; o total de vídeo vem antes
+    total = sd_bytes(d, "total_space_accurate") or sd_bytes(d, "video_total_space_accurate")
+    free = sd_bytes(d, "free_space_accurate")
     return round(100 * (total - free) / total, 1) if total else None
 
 

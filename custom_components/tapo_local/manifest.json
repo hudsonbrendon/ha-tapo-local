@@ -1,5 +1,5 @@
 {
-  "domain": "tapo_plus",
+  "domain": "tapo_local",
   "name": "Tapo Local",
   "after_dependencies": [
     "tapo_control",
@@ -9,14 +9,14 @@
     "@hudsonbrendon"
   ],
   "config_flow": true,
-  "documentation": "https://github.com/hudsonbrendon/ha-tapo-plus",
+  "documentation": "https://github.com/hudsonbrendon/ha-tapo-local",
   "integration_type": "device",
   "iot_class": "local_polling",
-  "issue_tracker": "https://github.com/hudsonbrendon/ha-tapo-plus/issues",
+  "issue_tracker": "https://github.com/hudsonbrendon/ha-tapo-local/issues",
   "requirements": [
-    "pytapo>=3.4.30"
+    "python-tapo-local==0.1.0"
   ],
-  "version": "0.3.0",
+  "version": "1.0.0",
   "dependencies": [
     "ffmpeg"
   ]

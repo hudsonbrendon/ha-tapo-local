@@ -1,16 +1,16 @@
 """Roda todos os sensores contra uma resposta real da C200 (fw 1.5.7).
 
-uv run --python 3.14 --with homeassistant --with numpy --with ha-ffmpeg --with PyTurboJPEG --with av python tests/check_sensors.py
+uv run --python 3.14 --with homeassistant --with numpy --with ha-ffmpeg --with PyTurboJPEG --with av --with python-tapo-local python tests/check_sensors.py
 """
 import json
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parents[1] / "custom_components"))
-from tapo_plus.binary_sensor import LOCAL_BINARIES  # noqa: E402
-from tapo_plus.sensor import LOCAL_SENSORS, fps, record_mode  # noqa: E402
-from tapo_plus import button, camera, number, select, siren, switch, update  # noqa: E402,F401
-from tapo_plus.entity import Setting  # noqa: E402
+from tapo_local.binary_sensor import LOCAL_BINARIES  # noqa: E402
+from tapo_local.sensor import LOCAL_SENSORS, fps, record_mode  # noqa: E402
+from tapo_local import button, camera, number, select, siren, switch, update  # noqa: E402,F401
+from tapo_local.entity import Setting  # noqa: E402
 
 d = json.loads((Path(__file__).with_name("fixture_c200.json")).read_text())
 vals = {s.key: s.value_fn(d) for s in LOCAL_SENSORS}

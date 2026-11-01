@@ -50,8 +50,12 @@ de notificações em 24h e firmware que a nuvem informa.
 
 ## Instalação
 
-Copie `custom_components/tapo_plus` para `/config/custom_components/` (ou instale
-pelo HACS como repositório customizado) e reinicie o HA. Depois vá em **Adicionar
+Pelo HACS: **⋮ → Repositórios personalizados** → `https://github.com/hudsonbrendon/ha-tapo-local`
+(categoria *Integração*) → instalar **Tapo Local** → reiniciar o HA. Ou copie
+`custom_components/tapo_local` para `/config/custom_components/`.
+
+O protocolo fica na biblioteca [python-tapo-local](https://github.com/hudsonbrendon/python-tapo-local)
+(PyPI), instalada automaticamente pelo HA. Depois vá em **Adicionar
 integração → Tapo Local**:
 
 - **Usar câmera do Tapo: Cameras Control**: reaproveita o IP e a senha que já estão cadastrados lá.
@@ -96,7 +100,7 @@ integração → Tapo Local**:
 ## Teste
 
 ```sh
-uv run --python 3.14 --with homeassistant --with numpy --with ha-ffmpeg --with PyTurboJPEG --with av python tests/check_sensors.py
+uv run --python 3.14 --with homeassistant --with numpy --with ha-ffmpeg --with PyTurboJPEG --with av --with python-tapo-local python tests/check_sensors.py
 ```
 
 O teste roda todos os sensores contra uma resposta real (anonimizada) de uma C200.
