@@ -350,8 +350,12 @@ class TapoCloudSensor(CoordinatorEntity, SensorEntity):
             m = self._msgs[0]
             a = msg_attach(m)
             return {"title": m.get("title"), "content": m.get("content"), "type": m.get("msgType"),
-                    "category": m.get("msgCategory"), "image_url": a.get("imgUrl"),
-                    "sub_type": a.get("msgSubType")}
+                    "local_time": a.get("localTime"), "has_cloud_video": a.get("hasCloudVideo") == "true",
+                    "image_url": a.get("imgUrl"), "sub_type": a.get("msgSubType")}
+        if self._key == "notifications_24h":
+            return {"by_type": dict(Counter(m.get("msgType") for m in self._msgs)),
+                    "recent": [{"time": t.isoformat() if (t := ts(m.get("time"))) else None,
+                                "title": m.get("title"), "type": m.get("msgType")} for m in self._msgs[:10]]}
         return None
 
 

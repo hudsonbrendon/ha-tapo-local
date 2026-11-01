@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
+import asyncio
 from datetime import timedelta
 import logging
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_HOST, CONF_PASSWORD, CONF_USERNAME, Platform
 from homeassistant.core import HomeAssistant
-from homeassistant.exceptions import ConfigEntryAuthFailed
+from homeassistant.exceptions import ConfigEntryAuthFailed, ConfigEntryNotReady
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
@@ -37,7 +38,10 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
                 if not cloud.url:
                     await cloud.login()
                 devices = await cloud.devices()
-                msgs = {d["deviceId"]: await cloud.messages(d["deviceId"]) for d in devices}
+                msgs: dict[str, list] = {}
+                for n in sorted(await cloud.notifications(), key=lambda n: int(n.get("time") or 0), reverse=True):
+                    att = n.get("attachments") if isinstance(n.get("attachments"), dict) else {}
+                    msgs.setdefault(att.get("deviceId"), []).append(n)
             except TapoMFARequired as err:
                 raise ConfigEntryAuthFailed("A TP-Link pediu código MFA de novo") from err
             except TapoCloudError as err:
@@ -52,6 +56,10 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             update_method=update_cloud, update_interval=timedelta(minutes=2),
         )
     else:
+        if not hass.is_running:
+            # Ler 40+ métodos de 3 câmeras durante o boot estoura o "Bootstrap stage 2
+            # timeout" do HA; adiando, o retry roda fora do bootstrap segundos depois.
+            raise ConfigEntryNotReady("Aguardando o Home Assistant terminar de iniciar")
         local = TapoLocal(entry.data[CONF_HOST], entry.data[CONF_PASSWORD])
 
         async def update_local() -> dict:
@@ -82,10 +90,16 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         )
         _adopt_rtsp_credentials(hass, entry)
 
-    await coordinator.async_config_entry_first_refresh()
-    if hasattr(coordinator, "live"):
-        coordinator.has_ptz = "getPresetConfig" in coordinator.data
-        await coordinator.live.async_config_entry_first_refresh()
+    try:
+        # No boot o executor do HA fica disputado; sem teto, uma câmera lenta estoura o
+        # "Bootstrap stage 2 timeout" global. NotReady faz o HA tentar de novo depois.
+        async with asyncio.timeout(90):
+            await coordinator.async_config_entry_first_refresh()
+            if hasattr(coordinator, "live"):
+                coordinator.has_ptz = "getPresetConfig" in coordinator.data
+                await coordinator.live.async_config_entry_first_refresh()
+    except TimeoutError as err:
+        raise ConfigEntryNotReady("A câmera demorou a responder") from err
     entry.runtime_data = coordinator
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
     return True

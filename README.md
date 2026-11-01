@@ -80,7 +80,7 @@ integração → Tapo Plus**:
 
 ### Nuvem (API v2)
 
-- Base `https://n-wap.i.tplinkcloud.com` → `POST /api/v2/account/getAccountStatusAndUrl` devolve `appServerUrl`. Depois vêm `/api/v2/account/login`, `/api/v2/common/getDeviceListByPage`, `/api/v2/common/getDeviceMsgsByPage` e `/api/v2/common/passthrough` (manda métodos da câmera pela nuvem).
+- Base `https://n-wap.i.tplinkcloud.com` → `POST /api/v2/account/getAccountStatusAndUrl` devolve `appServerUrl`. Depois vêm `/api/v2/account/login`, `/api/v2/common/getDeviceListByPage`, `/api/v2/common/getAppNotificationByPage` (central de notificações; só funciona com `direction: "asc"` a partir de `indexTime` em ms — `desc` volta vazio; `getDeviceMsgsByPage` existe mas o app não usa e volta sempre vazio) e `/api/v2/common/passthrough` (manda métodos da câmera pela nuvem).
 - Assinatura (interceptor `m7/r`):
   `Content-MD5 = base64(md5(body))` e
   `X-Authorization: Timestamp=9999999999, Nonce=<uuid>, AccessKey=4d11b6b9d5ea4d19a829adbb9714b057, Signature=hex(HMAC-SHA1(6ed7d97f3e73467f8a5bab90b577ba4c, md5 + "\n9999999999\n" + nonce + "\n" + path))`.

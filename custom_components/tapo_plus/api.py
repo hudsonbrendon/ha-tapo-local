@@ -325,7 +325,23 @@ class TapoCloud:
             "deviceTypeList": ["SMART.IPCAMERA"], "index": 0, "limit": 50})
         return res.get("deviceList", [])
 
-    async def messages(self, device_id: str, limit: int = 20) -> list[dict]:
-        res = await self._call("/api/v2/common/getDeviceMsgsByPage", {
-            "deviceId": device_id, "index": 0, "limit": limit, "direction": "desc", "locale": "pt_BR"})
-        return res.get("notifications", [])
+    async def notifications(self, hours: int = 24) -> list[dict]:
+        """Central de notificações do app (NotificationCenterManager.V()).
+
+        O servidor só responde em ordem ascendente a partir de indexTime (desc vem vazio).
+        getDeviceMsgsByPage existe na API mas o app não usa e volta sempre vazio.
+        """
+        since = int(time.time() * 1000) - hours * 3600_000
+        out: list[dict] = []
+        index = 0
+        for _ in range(20):  # 20 páginas × 50 = teto de 1000 notificações no período
+            res = await self._call("/api/v2/common/getAppNotificationByPage", {
+                "appType": APP_TYPE, "terminalUUID": self.terminal_uuid, "mobileType": "ANDROID",
+                "deviceToken": "", "locale": "pt_BR", "direction": "asc", "index": index,
+                "indexTime": since, "limit": 50, "contentVersion": 3,
+            })
+            out += res.get("notifications", [])
+            if not res.get("hasNextPage"):
+                break
+            index = res.get("currentIndex", index) + 1
+        return out
