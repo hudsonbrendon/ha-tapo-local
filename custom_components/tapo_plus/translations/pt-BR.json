@@ -149,9 +149,6 @@
       "onvif_tls": {
         "name": "ONVIF TLS"
       },
-      "cloud_online": {
-        "name": "Online (nuvem)"
-      },
       "motion": {
         "name": "Movimento"
       },

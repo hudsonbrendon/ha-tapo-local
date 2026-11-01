@@ -42,7 +42,7 @@ As credenciais RTSP (conta da câmera) vêm do tapo_control automaticamente quan
 câmera foi importada de lá.
 
 **Nuvem** (opcional, uma entrada por conta TP-Link, polling de 2 min):
-câmera online, última notificação (com título, texto e URL da imagem), contagem
+última notificação (com título, texto e URL da imagem), contagem
 de notificações em 24h e firmware que a nuvem informa.
 
 ## Instalação

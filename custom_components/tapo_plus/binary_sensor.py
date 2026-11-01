@@ -87,30 +87,11 @@ class TapoLiveBinary(CoordinatorEntity, BinarySensorEntity):
         return {"last_type": info.get("last_alarm_type")}
 
 
-class TapoCloudOnline(CoordinatorEntity, BinarySensorEntity):
-    _attr_has_entity_name = True
-    _attr_translation_key = "cloud_online"
-    _attr_device_class = BinarySensorDeviceClass.CONNECTIVITY
-
-    def __init__(self, coordinator, dev: dict) -> None:
-        super().__init__(coordinator)
-        self._device_id = dev["deviceId"]
-        self._attr_unique_id = f"cloud_{self._device_id}_online"
-        self._attr_device_info = DeviceInfo(
-            connections={(CONNECTION_NETWORK_MAC, format_mac(dev.get("deviceMac", "")))},
-            manufacturer="TP-Link", model=dev.get("deviceModel"), name=dev.get("alias"),
-        )
-
-    @property
-    def is_on(self):
-        dev = next((d for d in self.coordinator.data["devices"] if d.get("deviceId") == self._device_id), None)
-        return None if dev is None else dev.get("status") == 1
-
-
 async def async_setup_entry(hass, entry, async_add_entities) -> None:
     coordinator = entry.runtime_data
     if entry.data.get(CONF_KIND) == KIND_CLOUD:
-        async_add_entities(TapoCloudOnline(coordinator, d) for d in coordinator.data["devices"])
+        # Sem "online" da nuvem: status do getDeviceList é sempre 0 e o passthrough
+        # responde -20571 (offline) mesmo com a câmera mandando notificações.
         return
     ents: list = [TapoLocalBinary(coordinator, desc) for desc in LOCAL_BINARIES]
     info = local_device(coordinator.data)

@@ -276,7 +276,7 @@ class TapoCloud:
             params["token"] = self.token
         headers = {"Content-Type": "application/json;charset=UTF-8", **sign(raw, path, str(uuid.uuid4()))}
         async with self._session.post(base + path, params=params, data=raw, headers=headers,
-                                      ssl=self._ssl, timeout=aiohttp.ClientTimeout(total=20)) as r:
+                                      ssl=self._ssl, timeout=aiohttp.ClientTimeout(total=30)) as r:
             res = await r.json(content_type=None)
         code = res.get("error_code", -1)
         if code != 0:
