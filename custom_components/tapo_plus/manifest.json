@@ -1,13 +1,23 @@
 {
   "domain": "tapo_plus",
   "name": "Tapo Plus",
-  "after_dependencies": ["tapo_control"],
-  "codeowners": ["@hudsonbrendon"],
+  "after_dependencies": [
+    "tapo_control",
+    "stream"
+  ],
+  "codeowners": [
+    "@hudsonbrendon"
+  ],
   "config_flow": true,
   "documentation": "https://github.com/hudsonbrendon/ha-tapo-plus",
   "integration_type": "device",
   "iot_class": "local_polling",
   "issue_tracker": "https://github.com/hudsonbrendon/ha-tapo-plus/issues",
-  "requirements": ["pytapo>=3.4.30"],
-  "version": "0.1.0"
+  "requirements": [
+    "pytapo>=3.4.30"
+  ],
+  "version": "0.2.0",
+  "dependencies": [
+    "ffmpeg"
+  ]
 }

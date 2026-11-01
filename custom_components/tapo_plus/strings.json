@@ -20,7 +20,9 @@
         "description": "Local login uses user admin + your TP-Link account password. Wrong passwords lock the camera for 30 minutes.",
         "data": {
           "host": "IP address",
-          "password": "TP-Link account password"
+          "password": "TP-Link account password",
+          "rtsp_username": "RTSP user (camera account, optional)",
+          "rtsp_password": "RTSP password"
         }
       },
       "cloud": {
@@ -147,11 +149,232 @@
       "onvif_tls": {
         "name": "ONVIF TLS"
       },
+      "cloud_online": {
+        "name": "Online (cloud)"
+      },
+      "motion": {
+        "name": "Motion"
+      },
+      "person": {
+        "name": "Person"
+      },
+      "any_event": {
+        "name": "Event in progress"
+      }
+    },
+    "switch": {
+      "privacy": {
+        "name": "Privacy mode"
+      },
+      "motion_detection": {
+        "name": "Motion detection"
+      },
+      "person_detection": {
+        "name": "Person detection"
+      },
+      "tamper_detection": {
+        "name": "Tamper detection"
+      },
+      "baby_cry_detection": {
+        "name": "Baby cry detection"
+      },
+      "vehicle_detection": {
+        "name": "Vehicle detection"
+      },
+      "pet_detection": {
+        "name": "Pet detection"
+      },
+      "auto_track": {
+        "name": "Auto track"
+      },
+      "alarm": {
+        "name": "Automatic alarm"
+      },
+      "alarm_sound": {
+        "name": "Alarm sound"
+      },
+      "alarm_light": {
+        "name": "Alarm light"
+      },
+      "notifications": {
+        "name": "Notifications"
+      },
+      "rich_notifications": {
+        "name": "Rich notifications"
+      },
+      "record_to_sd": {
+        "name": "Record to SD card"
+      },
+      "loop_recording": {
+        "name": "Loop recording"
+      },
+      "record_audio": {
+        "name": "Record audio"
+      },
+      "microphone_mute": {
+        "name": "Mute microphone"
+      },
+      "noise_cancelling": {
+        "name": "Noise cancelling"
+      },
+      "speaker_mute": {
+        "name": "Mute speaker"
+      },
+      "led": {
+        "name": "Status LED"
+      },
+      "flip": {
+        "name": "Flip image"
+      },
+      "lens_distortion_correction": {
+        "name": "Lens distortion correction"
+      },
+      "osd_date": {
+        "name": "Date overlay"
+      },
+      "privacy_zones": {
+        "name": "Privacy zones"
+      },
+      "auto_upgrade": {
+        "name": "Automatic firmware update"
+      },
       "third_party": {
         "name": "Third-party compatibility"
       },
-      "cloud_online": {
-        "name": "Online (cloud)"
+      "smart_track_people": {
+        "name": "Smart track people"
+      },
+      "smart_track_pet": {
+        "name": "Smart track pets"
+      },
+      "smart_track_vehicle": {
+        "name": "Smart track vehicles"
+      },
+      "patrol": {
+        "name": "Patrol"
+      },
+      "push_people_detection": {
+        "name": "Notify on person"
+      },
+      "alarm_people_detection": {
+        "name": "Alarm on person"
+      },
+      "push_motion_detection": {
+        "name": "Notify on motion"
+      },
+      "alarm_motion_detection": {
+        "name": "Alarm on motion"
+      },
+      "push_tamper_detection": {
+        "name": "Notify on tampering"
+      },
+      "alarm_tamper_detection": {
+        "name": "Alarm on tampering"
+      },
+      "push_sound_detection": {
+        "name": "Notify on sound"
+      },
+      "alarm_sound_detection": {
+        "name": "Alarm on sound"
+      }
+    },
+    "number": {
+      "motion_sensitivity": {
+        "name": "Motion sensitivity"
+      },
+      "person_sensitivity": {
+        "name": "Person sensitivity"
+      },
+      "tamper_sensitivity": {
+        "name": "Tamper sensitivity"
+      },
+      "baby_cry_sensitivity": {
+        "name": "Baby cry sensitivity"
+      },
+      "speaker_volume": {
+        "name": "Speaker volume"
+      },
+      "microphone_volume": {
+        "name": "Microphone volume"
+      },
+      "brightness": {
+        "name": "Brightness"
+      },
+      "ptz_step": {
+        "name": "PTZ step"
+      }
+    },
+    "select": {
+      "night_vision": {
+        "name": "Night vision",
+        "state": {
+          "auto": "Auto",
+          "on": "On",
+          "off": "Off"
+        }
+      },
+      "light_frequency": {
+        "name": "Light frequency",
+        "state": {
+          "auto": "Auto",
+          "50hz": "50 Hz",
+          "60hz": "60 Hz"
+        }
+      },
+      "alarm_volume": {
+        "name": "Alarm volume",
+        "state": {
+          "low": "Low",
+          "normal": "Normal",
+          "high": "High"
+        }
+      },
+      "siren_type": {
+        "name": "Siren sound"
+      },
+      "preset": {
+        "name": "Go to preset"
+      }
+    },
+    "button": {
+      "reboot": {
+        "name": "Reboot"
+      },
+      "format_sd": {
+        "name": "Format SD card"
+      },
+      "calibrate": {
+        "name": "Calibrate PTZ"
+      },
+      "move_up": {
+        "name": "Move up"
+      },
+      "move_down": {
+        "name": "Move down"
+      },
+      "move_left": {
+        "name": "Move left"
+      },
+      "move_right": {
+        "name": "Move right"
+      }
+    },
+    "siren": {
+      "siren": {
+        "name": "Siren"
+      }
+    },
+    "update": {
+      "firmware": {
+        "name": "Firmware"
+      }
+    },
+    "camera": {
+      "camera_hd": {
+        "name": "HD stream"
+      },
+      "camera_sd": {
+        "name": "SD stream"
       }
     }
   }

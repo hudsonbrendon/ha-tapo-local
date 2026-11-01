@@ -13,10 +13,16 @@ from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
 from .api import TapoAuthError, TapoCloud, TapoCloudError, TapoLocal, TapoMFARequired
-from .const import CONF_KIND, CONF_TERMINAL_UUID, CONF_TOKEN, CONF_URL, DOMAIN, KIND_CLOUD
+from .const import (
+    CONF_KIND, CONF_RTSP_PASSWORD, CONF_RTSP_USERNAME, CONF_TERMINAL_UUID, CONF_TOKEN, CONF_URL,
+    DOMAIN, KIND_CLOUD,
+)
 
 _LOGGER = logging.getLogger(__name__)
-PLATFORMS = [Platform.SENSOR, Platform.BINARY_SENSOR]
+PLATFORMS = [
+    Platform.SENSOR, Platform.BINARY_SENSOR, Platform.SWITCH, Platform.NUMBER, Platform.SELECT,
+    Platform.BUTTON, Platform.SIREN, Platform.UPDATE, Platform.CAMERA,
+]
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
@@ -62,10 +68,39 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             update_method=update_local, update_interval=timedelta(seconds=60),
         )
 
+        async def update_live() -> dict:
+            try:
+                return await hass.async_add_executor_job(local.fetch_live)
+            except Exception as err:  # auth cai no coordinator principal; aqui só marca indisponível
+                raise UpdateFailed(str(err)) from err
+
+        coordinator.local = local
+        coordinator.ptz_step = 15
+        coordinator.live = DataUpdateCoordinator(
+            hass, _LOGGER, config_entry=entry, name=f"{DOMAIN} {entry.data[CONF_HOST]} live",
+            update_method=update_live, update_interval=timedelta(seconds=5),
+        )
+        _adopt_rtsp_credentials(hass, entry)
+
     await coordinator.async_config_entry_first_refresh()
+    if hasattr(coordinator, "live"):
+        coordinator.has_ptz = "getPresetConfig" in coordinator.data
+        await coordinator.live.async_config_entry_first_refresh()
     entry.runtime_data = coordinator
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
     return True
+
+
+def _adopt_rtsp_credentials(hass: HomeAssistant, entry: ConfigEntry) -> None:
+    """Pega usuário/senha RTSP da conta de câmera já cadastrada no tapo_control."""
+    if entry.data.get(CONF_RTSP_USERNAME):
+        return
+    for other in hass.config_entries.async_entries("tapo_control"):
+        if other.data.get("ip_address") == entry.data[CONF_HOST] and other.data.get("username"):
+            hass.config_entries.async_update_entry(entry, data={
+                **entry.data, CONF_RTSP_USERNAME: other.data["username"],
+                CONF_RTSP_PASSWORD: other.data["password"]})
+            return
 
 
 async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:

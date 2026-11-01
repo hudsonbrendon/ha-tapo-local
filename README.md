@@ -26,6 +26,21 @@ PTZ e os switches continuam lá, e as entidades daqui entram no mesmo dispositiv
 | Tipos de notificação ativos (push × alarme, sensibilidades) | `getMsgPushEventList` / `getAlertEventType` |
 | Problema no SD, UPnP, ONVIF TLS, compatibilidade com terceiros | binários de diagnóstico |
 
+**Controles** (todos testados numa C200: grava → relê → reverte):
+
+| Tipo | Entidades |
+|---|---|
+| Câmera | Vídeo HD (`stream1`) e SD (`stream2`, desativada por padrão) via RTSP, snapshot por ffmpeg |
+| Ao vivo (5 s) | Movimento, Pessoa, Evento em andamento (evento aberto no `searchDetectionList`) |
+| Switch | privacidade, detecção de movimento/pessoa/adulteração/choro (e veículo/pet onde houver), rastreamento automático, rastreamento inteligente (se suportado), alarme automático + som + luz, notificações + com imagem, notificar e disparar alarme **por tipo de evento**, gravar no SD, gravação em loop, gravar áudio, microfone/alto-falante mudo, cancelamento de ruído, LED, inverter imagem, correção de distorção, data na imagem, zonas de privacidade, auto-update de firmware, compatibilidade com terceiros, patrulha |
+| Number | sensibilidade de movimento/pessoa/adulteração/choro, volume do alto-falante e do microfone, brilho, passo do PTZ |
+| Select | visão noturna (auto/ligada/desligada), frequência da luz, volume e som da sirene, ir para posição salva |
+| Botões | reiniciar, formatar SD, calibrar PTZ, mover ↑ ↓ ← → |
+| Sirene / Update | alarme manual; firmware (instala pela câmera) |
+
+As credenciais RTSP (conta da câmera) vêm do tapo_control automaticamente quando a
+câmera foi importada de lá.
+
 **Nuvem** (opcional, uma entrada por conta TP-Link, polling de 2 min):
 câmera online, última notificação (com título, texto e URL da imagem), contagem
 de notificações em 24h e firmware que a nuvem informa.
@@ -45,6 +60,12 @@ integração → Tapo Plus**:
 > ("Temporary Suspension"). Se der erro de autenticação, a integração para de
 > tentar e pede reautenticação.
 
+## Limitações conhecidas
+
+- Na C200, contraste, saturação, nitidez, WDR, backlight e dehaze aparecem no `get`, mas o firmware recusa gravar (`-40209`). O app também não oferece esses ajustes.
+- A sirene usa `doManualAlarm` e, se falhar, o formato legado `{"method":"do","msg_alarm":{"manual_msg_alarm":…}}`. Não foi disparada em teste.
+- Ainda não há navegação/sincronização das gravações do SD (media source do tapo_control).
+
 ## Protocolo (o que a RE encontrou)
 
 ### Local
@@ -54,6 +75,7 @@ integração → Tapo Plus**:
 - Formato dos parâmetros, extraído de `mv0/zk.java`: `{"<module>": {"name": ["<section>"]}}`, ou `{"<module>": {"table": [...]}}`, ou `{"<module>": {"<ação>": {}}}`. Veja [`docs/request-shapes.json`](docs/request-shapes.json).
 - O que uma C200 v5 realmente responde: [`docs/c200-supported.md`](docs/c200-supported.md). São 73 de 248 getters.
 - Códigos de `alarm_type` (enum `PlayBackEventType`): 1 timing, 2 motion, 3 tamper, 4 linecross, 5 area intrusion, 6 person, 7 baby cry, 8 vehicle, 9 pet, 11 bark, 12 meow, 13 glass, 14 smoke, 15/16 package, 17/18 doorbell, 33 animal, 36 CO, entre outros (ver `const.py`).
+- Escrita: `set<X> {módulo:{seção:{campo:valor}}}`, o mesmo formato do get. Particularidades da C200: `setDayNightModeConfig` exige `"chn_id": ["1"]`; `setFirmwareAutoUpgradeConfig` exige `time` + `random_range`; o brilho só é aceito por `setImageLumaConfig`; e a frequência da luz só por `setLightFrequencyInfo`.
 - No `frame_rate`, os 16 bits baixos são o fps (`65551` = `0x1000F` = 15 fps).
 
 ### Nuvem (API v2)
@@ -71,7 +93,7 @@ integração → Tapo Plus**:
 ## Teste
 
 ```sh
-uv run --python 3.14 --with homeassistant python tests/check_sensors.py
+uv run --python 3.14 --with homeassistant --with numpy --with ha-ffmpeg --with PyTurboJPEG --with av python tests/check_sensors.py
 ```
 
 O teste roda todos os sensores contra uma resposta real (anonimizada) de uma C200.

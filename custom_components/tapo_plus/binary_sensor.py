@@ -40,10 +40,6 @@ LOCAL_BINARIES = (
         key="onvif_tls", translation_key="onvif_tls", entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda d: on(g(d, "getOnvifSecurityConfig", "security_config", "onvif_security_config", "tls_enable")),
     ),
-    TapoBinaryDescription(
-        key="third_party", translation_key="third_party", entity_category=EntityCategory.DIAGNOSTIC,
-        value_fn=lambda d: on(g(d, "getThirdPartyCompatibility", "local_ctrl", "third_party_setting", "enabled")),
-    ),
 )
 
 
@@ -61,6 +57,34 @@ class TapoLocalBinary(CoordinatorEntity, BinarySensorEntity):
     @property
     def is_on(self):
         return self.entity_description.value_fn(self.coordinator.data)
+
+
+class TapoLiveBinary(CoordinatorEntity, BinarySensorEntity):
+    """Movimento/pessoa agora: evento em andamento no searchDetectionList (polling 5 s)."""
+
+    _attr_has_entity_name = True
+
+    def __init__(self, live, base_info: DeviceInfo, mac: str, key: str, codes: tuple[int, ...],
+                 device_class) -> None:
+        super().__init__(live)
+        self._attr_translation_key = key
+        self._attr_unique_id = f"{mac}_{key}"
+        self._attr_device_info = base_info
+        self._attr_device_class = device_class
+        self._codes = codes
+
+    @property
+    def is_on(self):
+        d = self.coordinator.data or {}
+        now = d.get("_fetched_at", 0)
+        events = g(d, "searchDetectionList", "playback", "search_detection_list") or []
+        # end_time vem no futuro enquanto o evento dura; folga de 10 s pra não piscar
+        return any(e.get("alarm_type") in self._codes and e.get("end_time", 0) + 10 >= now for e in events)
+
+    @property
+    def extra_state_attributes(self):
+        info = g(self.coordinator.data, "getLastAlarmInfo", "system", "last_alarm_info") or {}
+        return {"last_type": info.get("last_alarm_type")}
 
 
 class TapoCloudOnline(CoordinatorEntity, BinarySensorEntity):
@@ -88,4 +112,12 @@ async def async_setup_entry(hass, entry, async_add_entities) -> None:
     if entry.data.get(CONF_KIND) == KIND_CLOUD:
         async_add_entities(TapoCloudOnline(coordinator, d) for d in coordinator.data["devices"])
         return
-    async_add_entities(TapoLocalBinary(coordinator, desc) for desc in LOCAL_BINARIES)
+    ents: list = [TapoLocalBinary(coordinator, desc) for desc in LOCAL_BINARIES]
+    info = local_device(coordinator.data)
+    mac = format_mac(g(coordinator.data, "getDeviceInfo", "device_info", "basic_info", "mac") or "")
+    ents += [
+        TapoLiveBinary(coordinator.live, info, mac, "motion", (2,), BinarySensorDeviceClass.MOTION),
+        TapoLiveBinary(coordinator.live, info, mac, "person", (6,), BinarySensorDeviceClass.OCCUPANCY),
+        TapoLiveBinary(coordinator.live, info, mac, "any_event", tuple(range(2, 40)), BinarySensorDeviceClass.MOTION),
+    ]
+    async_add_entities(ents)

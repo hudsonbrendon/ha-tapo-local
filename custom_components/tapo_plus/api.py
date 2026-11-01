@@ -12,6 +12,7 @@ import hashlib
 import hmac
 import json
 import ssl
+import threading
 import time
 import uuid
 from pathlib import Path
@@ -49,12 +50,38 @@ LOCAL_QUERIES: list[tuple[str, dict]] = [
     ("getThirdPartyCompatibility", {"local_ctrl": {"name": ["third_party_setting"]}}),
     ("getTapoCareServiceList", {"tapo_care": {"name": ["service_list"]}}),
     ("getLensMaskConfig", {"lens_mask": {"name": ["lens_mask_info"]}}),
+    ("getLedStatus", {"led": {"name": ["config"]}}),
+    ("getRotationStatus", {"image": {"name": ["switch"]}}),
+    ("getDayNightModeConfig", {"image": {"name": ["common"]}}),
+    ("getTargetTrackConfig", {"target_track": {"name": ["target_track_info"]}}),
+    ("getSmartTrackConfig", {"smart_track": {"name": ["smart_track_info"]}}),
+    ("getSmartTrackCapability", {"smart_track": {"name": ["smart_track_capability"]}}),
+    ("getMsgPushConfig", {"msg_push": {"name": ["chn1_msg_push_info"]}}),
+    ("getAlertConfig", {"msg_alarm": {"name": ["chn1_msg_alarm_info"]}}),
+    ("getAlertTypeList", {"msg_alarm": {"name": ["alert_type"]}}),
+    ("getTamperDetectionConfig", {"tamper_detection": {"name": ["tamper_det"]}}),
+    ("getBCDConfig", {"sound_detection": {"name": ["bcd"]}}),
+    ("getVehicleDetectionConfig", {"vehicle_detection": {"name": ["detection"]}}),
+    ("getPetDetectionConfig", {"pet_detection": {"name": ["detection"]}}),
+    ("getCoverConfig", {"cover": {"name": ["cover"]}}),
+    ("getOsd", {"OSD": {"name": ["date"]}}),
+    ("getPresetConfig", {"preset": {"name": ["preset"]}}),
+    ("getPatrolStatus", {"patrol": {"get_patrol_status": {}}}),
+    ("getNightVisionCapability", {"image_capability": {"name": ["supplement_lamp"]}}),
 ]
+# Polling rápido (5 s) para movimento/pessoa "ao vivo"; o tapo_control usa ONVIF pra isso.
+LIVE_QUERY = ("getLastAlarmInfo", {"system": {"name": ["last_alarm_info"]}})
 BATCH = 12  # o firmware aceita lotes desse tamanho sem reclamar (testado na C200)
 
 
 class TapoAuthError(Exception):
     """Senha errada ou câmera em suspensão temporária (lockout de 30 min)."""
+
+
+class TapoCommandError(Exception):
+    def __init__(self, method: str, code) -> None:
+        super().__init__(f"{method} falhou: {code}")
+        self.code = code
 
 
 class TapoLocal:
@@ -71,6 +98,7 @@ class TapoLocal:
         self._password = password
         self._tapo = None
         self._user_id: int | None = None
+        self._lock = threading.Lock()  # pytapo guarda seq/nonce; 1 requisição por vez
 
     def _client(self):
         if self._tapo is None:
@@ -94,6 +122,10 @@ class TapoLocal:
             return self._multi_once(queries)
 
     def _multi_once(self, queries: list[tuple[str, dict]]) -> dict[str, Any]:
+        with self._lock:
+            return self._multi_locked(queries)
+
+    def _multi_locked(self, queries: list[tuple[str, dict]]) -> dict[str, Any]:
         out: dict[str, Any] = {}
         for i in range(0, len(queries), BATCH):
             chunk = queries[i : i + BATCH]
@@ -113,6 +145,31 @@ class TapoLocal:
                 if r.get("error_code") == 0:
                     out[r["method"]] = r.get("result", {})
         return out
+
+    def call(self, method: str, params: dict) -> dict:
+        """Executa um set*/do* e devolve a resposta (levanta se error_code != 0)."""
+        with self._lock:
+            resp = self._client().performRequest(
+                {"method": "multipleRequest", "params": {"requests": [{"method": method, "params": params}]}}
+            )["result"]["responses"][0]
+        if resp.get("error_code") != 0:
+            raise TapoCommandError(method, resp.get("error_code"))
+        return resp.get("result", {})
+
+    def legacy(self, body: dict) -> dict:
+        """Formato antigo {"method": "do"/"set", ...} — a sirene da C200 só aceita assim."""
+        with self._lock:
+            return self._client().performRequest(body)
+
+    def fetch_live(self) -> dict[str, Any]:
+        now = int(time.time())
+        return {**self._multi([LIVE_QUERY, (
+            "searchDetectionList",
+            {"playback": {"search_detection_list": {
+                "start_index": 0, "end_index": 50, "channel": 0,
+                "start_time": now - 120, "end_time": now + 60,
+            }}},
+        )]), "_fetched_at": now}
 
     def fetch(self) -> dict[str, Any]:
         now = int(time.time())

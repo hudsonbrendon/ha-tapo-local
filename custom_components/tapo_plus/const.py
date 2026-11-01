@@ -8,6 +8,8 @@ KIND_CLOUD = "cloud"
 CONF_TERMINAL_UUID = "terminal_uuid"
 CONF_TOKEN = "token"
 CONF_URL = "url"
+CONF_RTSP_USERNAME = "rtsp_username"
+CONF_RTSP_PASSWORD = "rtsp_password"
 
 # PlayBackEventType (libtapocameranetwork/business/model) — alarm_type do searchDetectionList
 EVENT_TYPES = {

@@ -12,7 +12,7 @@ from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.device_registry import format_mac
 
 from .api import TapoAuthError, TapoCloud, TapoCloudError, TapoLocal, TapoMFARequired
-from .const import CONF_KIND, CONF_TERMINAL_UUID, CONF_TOKEN, CONF_URL, DOMAIN, KIND_CAMERA, KIND_CLOUD
+from .const import CONF_KIND, CONF_RTSP_PASSWORD, CONF_RTSP_USERNAME, CONF_TERMINAL_UUID, CONF_TOKEN, CONF_URL, DOMAIN, KIND_CAMERA, KIND_CLOUD
 
 CONF_SOURCE_ENTRY = "source_entry"
 CONF_CODE = "code"
@@ -42,21 +42,25 @@ class TapoPlusFlow(ConfigFlow, domain=DOMAIN):
         entries = {e.entry_id: e for e in self._tapo_control_entries()}
         if user_input is not None:
             src = entries[user_input[CONF_SOURCE_ENTRY]]
-            return await self._create_camera(src.data["ip_address"], src.data["cloud_password"])
+            return await self._create_camera(src.data["ip_address"], src.data["cloud_password"],
+                                             src.data.get("username"), src.data.get("password"))
         return self.async_show_form(step_id="import_tapo_control", data_schema=vol.Schema({
             vol.Required(CONF_SOURCE_ENTRY): vol.In({k: e.title for k, e in entries.items()}),
         }))
 
     async def async_step_camera(self, user_input=None) -> ConfigFlowResult:
         if user_input is not None:
-            return await self._create_camera(user_input[CONF_HOST], user_input[CONF_PASSWORD])
+            return await self._create_camera(user_input[CONF_HOST], user_input[CONF_PASSWORD],
+                                             user_input.get(CONF_RTSP_USERNAME), user_input.get(CONF_RTSP_PASSWORD))
         return self._camera_form("camera", {})
 
     def _camera_form(self, step: str, errors: dict) -> ConfigFlowResult:
         return self.async_show_form(step_id=step, errors=errors, data_schema=vol.Schema({
-            vol.Required(CONF_HOST): str, vol.Required(CONF_PASSWORD): str}))
+            vol.Required(CONF_HOST): str, vol.Required(CONF_PASSWORD): str,
+            vol.Optional(CONF_RTSP_USERNAME): str, vol.Optional(CONF_RTSP_PASSWORD): str}))
 
-    async def _create_camera(self, host: str, password: str) -> ConfigFlowResult:
+    async def _create_camera(self, host: str, password: str, rtsp_user: str | None = None,
+                             rtsp_pass: str | None = None) -> ConfigFlowResult:
         local = TapoLocal(host, password)
         try:
             data = await self.hass.async_add_executor_job(
@@ -70,7 +74,8 @@ class TapoPlusFlow(ConfigFlow, domain=DOMAIN):
         self._abort_if_unique_id_configured(updates={CONF_HOST: host, CONF_PASSWORD: password})
         return self.async_create_entry(
             title=(info.get("device_alias") or info.get("device_model") or host).strip(),
-            data={CONF_KIND: KIND_CAMERA, CONF_HOST: host, CONF_PASSWORD: password},
+            data={CONF_KIND: KIND_CAMERA, CONF_HOST: host, CONF_PASSWORD: password,
+                  **({CONF_RTSP_USERNAME: rtsp_user, CONF_RTSP_PASSWORD: rtsp_pass or ""} if rtsp_user else {})},
         )
 
     # -------------------------------------------------------- nuvem
