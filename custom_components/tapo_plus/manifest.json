@@ -1,6 +1,6 @@
 {
   "domain": "tapo_plus",
-  "name": "Tapo Plus",
+  "name": "Tapo Local",
   "after_dependencies": [
     "tapo_control",
     "stream"
@@ -16,7 +16,7 @@
   "requirements": [
     "pytapo>=3.4.30"
   ],
-  "version": "0.2.0",
+  "version": "0.3.0",
   "dependencies": [
     "ffmpeg"
   ]

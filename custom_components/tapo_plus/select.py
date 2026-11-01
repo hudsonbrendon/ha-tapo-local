@@ -1,4 +1,4 @@
-"""Selects Tapo Plus."""
+"""Selects Tapo Local."""
 
 from __future__ import annotations
 

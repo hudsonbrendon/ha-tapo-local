@@ -1,4 +1,4 @@
-"""Câmeras HD/SD (RTSP) Tapo Plus."""
+"""Câmeras HD/SD (RTSP) Tapo Local."""
 
 from __future__ import annotations
 

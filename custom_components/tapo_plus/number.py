@@ -1,4 +1,4 @@
-"""Numbers Tapo Plus."""
+"""Numbers Tapo Local."""
 
 from __future__ import annotations
 

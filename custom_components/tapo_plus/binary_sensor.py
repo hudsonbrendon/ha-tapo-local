@@ -1,4 +1,4 @@
-"""Binários Tapo Plus."""
+"""Binários Tapo Local."""
 
 from __future__ import annotations
 

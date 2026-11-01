@@ -1,4 +1,4 @@
-"""Config flow Tapo Plus."""
+"""Config flow Tapo Local."""
 
 from __future__ import annotations
 

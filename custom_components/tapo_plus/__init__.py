@@ -1,4 +1,4 @@
-"""Tapo Plus: dados das câmeras Tapo tirados da engenharia reversa do app."""
+"""Tapo Local: dados das câmeras Tapo tirados da engenharia reversa do app."""
 
 from __future__ import annotations
 
@@ -20,6 +20,8 @@ from .const import (
 )
 
 _LOGGER = logging.getLogger(__name__)
+MAIN_INTERVAL = timedelta(seconds=60)
+LIVE_INTERVAL = timedelta(seconds=5)
 PLATFORMS = [
     Platform.SENSOR, Platform.BINARY_SENSOR, Platform.SWITCH, Platform.NUMBER, Platform.SELECT,
     Platform.BUTTON, Platform.SIREN, Platform.UPDATE, Platform.CAMERA,
@@ -62,31 +64,55 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             raise ConfigEntryNotReady("Aguardando o Home Assistant terminar de iniciar")
         local = TapoLocal(entry.data[CONF_HOST], entry.data[CONF_PASSWORD])
 
+        fails = {"main": 0, "live": 0}
+
+        def transient(key: str, coord, err: Exception, base: timedelta, cap: timedelta) -> dict:
+            """Erro passageiro: espaça as tentativas e segura o último estado por um tempo."""
+            fails[key] += 1
+            coord.update_interval = min(base * 2 ** fails[key], cap)
+            if coord.data and fails[key] < 4:
+                _LOGGER.debug("%s: falha %s em %s (%s)", entry.title, fails[key], key, err)
+                return coord.data
+            raise UpdateFailed(str(err)) from err
+
+        def ok(key: str, coord, base: timedelta) -> None:
+            fails[key] = 0
+            coord.update_interval = base
+
         async def update_local() -> dict:
             try:
-                return await hass.async_add_executor_job(local.fetch)
+                data = await hass.async_add_executor_job(local.fetch)
             except TapoAuthError as err:
                 # Para de tentar: cada login errado aproxima o lockout de 30 min da câmera.
                 raise ConfigEntryAuthFailed(str(err)) from err
-            except Exception as err:  # pytapo/requests: erros genéricos de rede
-                raise UpdateFailed(str(err)) from err
+            except Exception as err:  # pytapo/requests: código da câmera ou rede
+                return transient("main", coordinator, err, MAIN_INTERVAL, timedelta(minutes=5))
+            ok("main", coordinator, MAIN_INTERVAL)
+            return data
 
         coordinator = DataUpdateCoordinator(
             hass, _LOGGER, config_entry=entry, name=f"{DOMAIN} {entry.data[CONF_HOST]}",
-            update_method=update_local, update_interval=timedelta(seconds=60),
+            update_method=update_local, update_interval=MAIN_INTERVAL,
         )
 
         async def update_live() -> dict:
+            live = coordinator.live
             try:
-                return await hass.async_add_executor_job(local.fetch_live)
-            except Exception as err:  # auth cai no coordinator principal; aqui só marca indisponível
+                data = await hass.async_add_executor_job(local.fetch_live)
+            except TapoAuthError as err:
+                # Login recusado: o ao-vivo não insiste; o coordinator principal decide (reauth).
+                live.update_interval = timedelta(minutes=5)
                 raise UpdateFailed(str(err)) from err
+            except Exception as err:
+                return transient("live", live, err, LIVE_INTERVAL, timedelta(seconds=60))
+            ok("live", live, LIVE_INTERVAL)
+            return data
 
         coordinator.local = local
         coordinator.ptz_step = 15
         coordinator.live = DataUpdateCoordinator(
             hass, _LOGGER, config_entry=entry, name=f"{DOMAIN} {entry.data[CONF_HOST]} live",
-            update_method=update_live, update_interval=timedelta(seconds=5),
+            update_method=update_live, update_interval=LIVE_INTERVAL,
         )
         _adopt_rtsp_credentials(hass, entry)
 

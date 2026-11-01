@@ -1,4 +1,4 @@
-"""Botões Tapo Plus: reboot, formatar SD, calibrar e mover o PTZ."""
+"""Botões Tapo Local: reboot, formatar SD, calibrar e mover o PTZ."""
 
 from __future__ import annotations
 

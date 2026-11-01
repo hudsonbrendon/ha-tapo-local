@@ -1,4 +1,4 @@
-"""Sirene (alarme manual) Tapo Plus."""
+"""Sirene (alarme manual) Tapo Local."""
 
 from __future__ import annotations
 

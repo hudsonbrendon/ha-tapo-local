@@ -1,4 +1,4 @@
-"""Firmware Tapo Plus."""
+"""Firmware Tapo Local."""
 
 from __future__ import annotations
 

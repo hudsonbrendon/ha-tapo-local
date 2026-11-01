@@ -137,7 +137,10 @@ class TapoLocal:
                     }
                 )
             except Exception as err:
-                self._tapo = None  # força novo login na próxima rodada
+                # Erro com código da câmera (ex.: -40214, a C200 v3 ocupada) mantém a sessão;
+                # só auth/rede pedem login novo — relogar à toa empurra pro lockout de 30 min.
+                if _is_auth(err) or "Response:" not in str(err):
+                    self._tapo = None
                 if _is_auth(err):
                     raise TapoAuthError(str(err)) from err
                 raise

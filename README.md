@@ -1,4 +1,7 @@
-# Tapo Plus
+# Tapo Local
+
+<img src="logo.png" height="64">
+
 
 Integração para Home Assistant que traz das câmeras Tapo o que o app mostra e o
 [Tapo: Cameras Control](https://github.com/JurajNyiri/HomeAssistant-Tapo-Control)
@@ -49,7 +52,7 @@ de notificações em 24h e firmware que a nuvem informa.
 
 Copie `custom_components/tapo_plus` para `/config/custom_components/` (ou instale
 pelo HACS como repositório customizado) e reinicie o HA. Depois vá em **Adicionar
-integração → Tapo Plus**:
+integração → Tapo Local**:
 
 - **Usar câmera do Tapo: Cameras Control**: reaproveita o IP e a senha que já estão cadastrados lá.
 - **Adicionar câmera manualmente**: informe o IP e a senha da **conta TP-Link**.

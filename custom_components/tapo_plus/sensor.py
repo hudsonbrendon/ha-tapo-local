@@ -1,4 +1,4 @@
-"""Sensores Tapo Plus (local por câmera + nuvem por conta)."""
+"""Sensores Tapo Local (local por câmera + nuvem por conta)."""
 
 from __future__ import annotations
 

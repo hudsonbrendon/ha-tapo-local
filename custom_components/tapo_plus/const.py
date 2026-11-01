@@ -1,4 +1,4 @@
-"""Constantes da integração Tapo Plus."""
+"""Constantes da integração Tapo Local."""
 
 DOMAIN = "tapo_plus"
 

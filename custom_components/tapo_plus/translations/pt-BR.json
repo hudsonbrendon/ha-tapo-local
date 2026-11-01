@@ -2,7 +2,7 @@
   "config": {
     "step": {
       "user": {
-        "title": "Tapo Plus",
+        "title": "Tapo Local",
         "menu_options": {
           "import_tapo_control": "Usar câmera do Tapo: Cameras Control",
           "camera": "Adicionar câmera manualmente",
