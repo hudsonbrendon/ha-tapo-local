@@ -14,9 +14,9 @@
   "iot_class": "local_polling",
   "issue_tracker": "https://github.com/hudsonbrendon/ha-tapo-local/issues",
   "requirements": [
-    "python-tapo-local==0.1.0"
+    "python-tapo-local==0.1.1"
   ],
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dependencies": [
     "ffmpeg"
   ]

@@ -83,7 +83,10 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             try:
                 data = await hass.async_add_executor_job(local.fetch)
             except TapoAuthError as err:
-                # Para de tentar: cada login errado aproxima o lockout de 30 min da câmera.
+                # A C200 v3 às vezes recusa um login bom. Com a câmera já funcionando, só pede
+                # reautenticação após 3 ciclos seguidos (backoff de minutos não chega ao lockout).
+                if coordinator.data and fails["main"] < 3:
+                    return transient("main", coordinator, err, MAIN_INTERVAL, timedelta(minutes=5))
                 raise ConfigEntryAuthFailed(str(err)) from err
             except Exception as err:  # pytapo/requests: código da câmera ou rede
                 return transient("main", coordinator, err, MAIN_INTERVAL, timedelta(minutes=5))
