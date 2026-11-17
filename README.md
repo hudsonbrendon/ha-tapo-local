@@ -1,7 +1,16 @@
+<p align="center">
+  <img src="custom_components/tapo_local/brand/logo@2x.png" alt="Tapo Local" height="128">
+</p>
+
 # Tapo Local
 
-<img src="logo.png" height="64">
-
+[![Tests](https://github.com/hudsonbrendon/ha-tapo-local/actions/workflows/tests.yml/badge.svg)](https://github.com/hudsonbrendon/ha-tapo-local/actions/workflows/tests.yml)
+[![Hassfest](https://github.com/hudsonbrendon/ha-tapo-local/actions/workflows/hassfest.yml/badge.svg)](https://github.com/hudsonbrendon/ha-tapo-local/actions/workflows/hassfest.yml)
+[![HACS](https://github.com/hudsonbrendon/ha-tapo-local/actions/workflows/validate.yml/badge.svg)](https://github.com/hudsonbrendon/ha-tapo-local/actions/workflows/validate.yml)
+[![Release](https://img.shields.io/github/v/release/hudsonbrendon/ha-tapo-local?sort=semver)](https://github.com/hudsonbrendon/ha-tapo-local/releases)
+[![Downloads](https://img.shields.io/github/downloads/hudsonbrendon/ha-tapo-local/total)](https://github.com/hudsonbrendon/ha-tapo-local/releases)
+[![HACS Custom](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://hacs.xyz/)
+[![License](https://img.shields.io/github/license/hudsonbrendon/ha-tapo-local)](LICENSE)
 
 Integração para Home Assistant que traz das câmeras Tapo o que o app mostra e o
 [Tapo: Cameras Control](https://github.com/JurajNyiri/HomeAssistant-Tapo-Control)
@@ -49,6 +58,9 @@ câmera foi importada de lá.
 de notificações em 24h e firmware que a nuvem informa.
 
 ## Instalação
+
+[![Abrir no HACS](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=hudsonbrendon&repository=ha-tapo-local&category=integration)
+[![Adicionar integração](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=tapo_local)
 
 Pelo HACS: **⋮ → Repositórios personalizados** → `https://github.com/hudsonbrendon/ha-tapo-local`
 (categoria *Integração*) → instalar **Tapo Local** → reiniciar o HA. Ou copie

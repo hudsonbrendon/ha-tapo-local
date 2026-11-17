@@ -2,7 +2,11 @@
 
 from __future__ import annotations
 
-from homeassistant.components.update import UpdateDeviceClass, UpdateEntity, UpdateEntityFeature
+from homeassistant.components.update import (
+    UpdateDeviceClass,
+    UpdateEntity,
+    UpdateEntityFeature,
+)
 
 from .const import CONF_KIND, KIND_CLOUD
 from .entity import TapoEntity, g

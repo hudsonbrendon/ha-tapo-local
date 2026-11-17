@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 from homeassistant.components.siren import SirenEntity, SirenEntityFeature
-
 from tapolocal import TapoCommandError
+
 from .const import CONF_KIND, KIND_CLOUD
 from .entity import TapoEntity
 

@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 import asyncio
-from datetime import timedelta
 import logging
+from datetime import timedelta
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_HOST, CONF_PASSWORD, CONF_USERNAME, Platform
@@ -12,11 +12,23 @@ from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryAuthFailed, ConfigEntryNotReady
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
+from tapolocal import (
+    TapoAuthError,
+    TapoCloud,
+    TapoCloudError,
+    TapoLocal,
+    TapoMFARequired,
+)
 
-from tapolocal import TapoAuthError, TapoCloud, TapoCloudError, TapoLocal, TapoMFARequired
 from .const import (
-    CONF_KIND, CONF_RTSP_PASSWORD, CONF_RTSP_USERNAME, CONF_TERMINAL_UUID, CONF_TOKEN, CONF_URL,
-    DOMAIN, KIND_CLOUD,
+    CONF_KIND,
+    CONF_RTSP_PASSWORD,
+    CONF_RTSP_USERNAME,
+    CONF_TERMINAL_UUID,
+    CONF_TOKEN,
+    CONF_URL,
+    DOMAIN,
+    KIND_CLOUD,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -88,7 +100,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
                 if coordinator.data and fails["main"] < 3:
                     return transient("main", coordinator, err, MAIN_INTERVAL, timedelta(minutes=5))
                 raise ConfigEntryAuthFailed(str(err)) from err
-            except Exception as err:  # pytapo/requests: código da câmera ou rede
+            except Exception as err:  # pytapo/requests: código da câmera ou rede  # noqa: BLE001
                 return transient("main", coordinator, err, MAIN_INTERVAL, timedelta(minutes=5))
             ok("main", coordinator, MAIN_INTERVAL)
             return data
@@ -106,7 +118,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
                 # Login recusado: o ao-vivo não insiste; o coordinator principal decide (reauth).
                 live.update_interval = timedelta(minutes=5)
                 raise UpdateFailed(str(err)) from err
-            except Exception as err:
+            except Exception as err:  # noqa: BLE001
                 return transient("live", live, err, LIVE_INTERVAL, timedelta(seconds=60))
             ok("live", live, LIVE_INTERVAL)
             return data

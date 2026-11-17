@@ -5,14 +5,29 @@ from __future__ import annotations
 from typing import Any
 
 import voluptuous as vol
-
 from homeassistant.config_entries import ConfigFlow, ConfigFlowResult
 from homeassistant.const import CONF_HOST, CONF_PASSWORD, CONF_USERNAME
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.device_registry import format_mac
+from tapolocal import (
+    TapoAuthError,
+    TapoCloud,
+    TapoCloudError,
+    TapoLocal,
+    TapoMFARequired,
+)
 
-from tapolocal import TapoAuthError, TapoCloud, TapoCloudError, TapoLocal, TapoMFARequired
-from .const import CONF_KIND, CONF_RTSP_PASSWORD, CONF_RTSP_USERNAME, CONF_TERMINAL_UUID, CONF_TOKEN, CONF_URL, DOMAIN, KIND_CAMERA, KIND_CLOUD
+from .const import (
+    CONF_KIND,
+    CONF_RTSP_PASSWORD,
+    CONF_RTSP_USERNAME,
+    CONF_TERMINAL_UUID,
+    CONF_TOKEN,
+    CONF_URL,
+    DOMAIN,
+    KIND_CAMERA,
+    KIND_CLOUD,
+)
 
 CONF_SOURCE_ENTRY = "source_entry"
 CONF_CODE = "code"
@@ -66,7 +81,7 @@ class TapoPlusFlow(ConfigFlow, domain=DOMAIN):
             info = await self.hass.async_add_executor_job(local.device_info)
         except TapoAuthError:
             return self._camera_form("camera", {"base": "invalid_auth"})
-        except Exception:  # pytapo: rede/timeout
+        except Exception:  # pytapo: rede/timeout  # noqa: BLE001
             return self._camera_form("camera", {"base": "cannot_connect"})
         await self.async_set_unique_id(format_mac(info["mac"]))
         self._abort_if_unique_id_configured(updates={CONF_HOST: host, CONF_PASSWORD: password})
@@ -95,7 +110,7 @@ class TapoPlusFlow(ConfigFlow, domain=DOMAIN):
                     return await self.async_step_mfa()
             except TapoCloudError as err:
                 errors["base"] = "invalid_auth" if err.code in (-20600, -20601, -20602, -20607, -20615) else "cannot_connect"
-            except Exception:
+            except Exception:  # noqa: BLE001
                 errors["base"] = "cannot_connect"
             else:
                 return await self._create_cloud(user_input[CONF_PASSWORD])
@@ -140,7 +155,7 @@ class TapoPlusFlow(ConfigFlow, domain=DOMAIN):
                 await self.hass.async_add_executor_job(local.device_info)
             except TapoAuthError:
                 errors["base"] = "invalid_auth"
-            except Exception:
+            except Exception:  # noqa: BLE001
                 errors["base"] = "cannot_connect"
             else:
                 return self.async_update_reload_and_abort(

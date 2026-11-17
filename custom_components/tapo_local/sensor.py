@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
+import json
 from collections import Counter
 from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import UTC, datetime
-import json
 from typing import Any
 
 from homeassistant.components.sensor import (
@@ -20,13 +20,16 @@ from homeassistant.const import (
     SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
     EntityCategory,
     UnitOfDataRate,
-    UnitOfInformation,
     UnitOfTime,
 )
-from homeassistant.helpers.device_registry import CONNECTION_NETWORK_MAC, DeviceInfo, format_mac
+from homeassistant.helpers.device_registry import (
+    CONNECTION_NETWORK_MAC,
+    DeviceInfo,
+    format_mac,
+)
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .const import CONF_KIND, DOMAIN, EVENT_TYPES, KIND_CLOUD, RECORD_TYPES
+from .const import CONF_KIND, EVENT_TYPES, KIND_CLOUD, RECORD_TYPES
 
 
 def g(d: Any, *path: Any) -> Any:
