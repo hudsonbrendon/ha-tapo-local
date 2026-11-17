@@ -1,0 +1,6 @@
+pytest-homeassistant-custom-component
+python-tapo-local==0.1.1
+numpy
+ha-ffmpeg
+PyTurboJPEG
+av
