@@ -2,7 +2,6 @@
   "domain": "tapo_local",
   "name": "Tapo Local",
   "after_dependencies": [
-    "tapo_control",
     "stream"
   ],
   "codeowners": [
@@ -19,5 +18,5 @@
   "requirements": [
     "python-tapo-local==0.1.1"
   ],
-  "version": "1.0.1"
+  "version": "1.0.2"
 }
